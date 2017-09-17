@@ -20,3 +20,11 @@ Test Reports -
 Test Scenarios and Test Cases are available in the 'AgeRanger_TestScripts.xlsx'
 
 A screen recording of the test execution is available in 'AgeRanger_TestAutomationExecution.mov'
+
+I have used the below listed tools and technologies to create the automation test suite:
+
+Cucumber
+Selenium
+Java
+JUnit
+REST Assured
