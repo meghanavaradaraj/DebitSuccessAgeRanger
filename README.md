@@ -23,8 +23,9 @@ A screen recording of the test execution is available in 'AgeRanger_TestAutomati
 
 I have used the below listed tools and technologies to create the automation test suite:
 
-Cucumber
-Selenium
-Java
-JUnit
-REST Assured
+1. Cucumber
+2. Selenium
+3. Java
+4. REST Assured
+5. JUnit
+
