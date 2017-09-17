@@ -5,11 +5,11 @@ Prerequisites/dependencies:
 4. Install cucumber plugin for eclipse
 5. Change chromer driver path in prameters.java file based in OS.
 
-____Mac OS:
-____seleniumChromePath = "./drivers/chromedriver";
+	Mac OS:
+	seleniumChromePath = "./drivers/chromedriver";
 
-Windows OS:
-seleniumChromePath = "./drivers/chromedriver.exe";
+	Windows OS:
+	seleniumChromePath = "./drivers/chromedriver.exe";
 
 To Run the Tests -
 	Run 'RunTest.java' as a JUnit Test
