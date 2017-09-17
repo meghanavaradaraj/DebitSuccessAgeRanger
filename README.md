@@ -4,9 +4,9 @@ Prerequisites/dependencies:
 3. Install Maven
 4. Install cucumber plugin for eclipse
 5. Change chromer driver path in prameters.java file based in OS
-	Mac OS - 
+	5.1. For Mac OS:
 		seleniumChromePath = "./drivers/chromedriver";
-	Windows OS -
+	5.2. Windows OS:
 		seleniumChromePath = "./drivers/chromedriver.exe";
 
 
