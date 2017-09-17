@@ -15,3 +15,7 @@ To Run the Tests:
 
 Test Reports:
 	HTMl report and screenshots will be available in the 'reports' folder of the project
+	
+Test Scenarios and Test Cases are available in the 'AgeRanger_TestScripts.xlsx'
+
+A screen recording of the test execution is available in 'AgeRanger_TestAutomationExecution.mov'
