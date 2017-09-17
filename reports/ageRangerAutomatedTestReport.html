@@ -1,0 +1,3007 @@
+
+
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset='utf-8' /> 
+	<meta name='description' content='' />
+	<meta name='robots' content='noodp, noydir' />
+	<meta name='viewport' content='width=device-width, initial-scale=1' />
+
+	<link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600' rel='stylesheet' type='text/css'>
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	
+		<link href='https://cdn.rawgit.com/anshooarora/extentreports-java/9fa70d0ed9c34a8ed445ceee3494d3d7de7f8918/dist/css/extent.css' type='text/css' rel='stylesheet' />
+	
+	<title>ExtentReports</title>
+
+</head>
+	<body class='extent standard default hide-overflow '>
+		<div id='theme-selector' alt='Click to toggle theme. To enable by default, use theme configuration.' title='Click to toggle theme. To enable by default, use theme configuration.'>
+			<span><i class='material-icons'>desktop_windows</i></span>
+		</div>
+
+<nav>
+	<div class="nav-wrapper">
+		<a href="#!" class="brand-logo blue darken-3">Extent</a>
+
+		<!-- slideout menu -->
+		<ul id='slide-out' class='side-nav fixed hide-on-med-and-down'>
+			<li class='waves-effect active'><a href='#!' view='test-view' onclick="configureView(0);chartsView('test');"><i class='material-icons'>dashboard</i></a></li>
+						<li class='waves-effect'><a href='#!' view='category-view' onclick="configureView(1)"><i class='material-icons'>label_outline</i></a></li>
+			<li class='waves-effect'><a href='#!' onclick="configureView(-1);chartsView('dashboard');" view='dashboard-view'><i class='material-icons'>track_changes</i></i></a></li>
+		</ul>
+
+		<!-- report name -->
+		<span class='report-name'>ExtentReports</span>
+		
+		<!-- report headline -->
+		<span class='report-headline'></span>
+
+		<!-- nav-right -->
+		<ul id='nav-mobile' class='right hide-on-med-and-down nav-right'>
+			<a href='#!'>
+				<span class='label suite-start-time'>Sep 17, 2017 7:14:06 PM</span>
+			</a>
+			<a href='#!'>
+				<span class='label'>v3.0.3</span>
+			</a>
+		</ul>
+	</div>
+</nav>
+		<!-- container -->
+		<div class='container'>
+
+<div id='test-view' class='view'>
+				
+	<section id='controls'>
+		<div class='controls grey lighten-4'>
+			<!-- test toggle -->
+			<div class='chip transparent'>
+				<a class='dropdown-button tests-toggle' data-activates='tests-toggle' data-constrainwidth='true' data-beloworigin='true' data-hover='true' href='#'>
+					<i class='material-icons'>warning</i> Status
+				</a>
+				<ul id='tests-toggle' class='dropdown-content'>
+											<li status='pass'><a href='#!'>Pass <i class='material-icons green-text'>check_circle</i></a></li>
+					<li class='divider'></li>
+					<li status='clear' clear='true'><a href='#!'>Clear Filters <i class='material-icons'>clear</i></a></li>
+				</ul>
+			</div>
+			<!-- test toggle -->
+
+			<!-- category toggle -->
+			<div class='chip transparent'>
+				<a class='dropdown-button category-toggle' data-activates='category-toggle' data-constrainwidth='false' data-beloworigin='true' data-hover='true' href='#'>
+					<i class='material-icons'>local_offer</i> Category
+				</a>
+				<ul id='category-toggle' class='dropdown-content'>
+					<li><a href='#'>@APITests</a></li>
+					<li><a href='#'>@NavigateToAgeRanger</a></li>
+					<li><a href='#'>@AddPerson</a></li>
+					<li><a href='#'>@EditPerson</a></li>
+					<li><a href='#'>@SearchPerson</a></li>
+					<li><a href='#'>@DeletePerson</a></li>
+					<li><a href='#'>@VerifyFieldValidations</a></li>
+					<li><a href='#'>@closeBrowser</a></li>
+					<li class='divider'></li>
+					<li class='clear'><a href='#!' clear='true'>Clear Filters</a></li>
+				</ul>
+			</div>
+			<!-- category toggle -->
+
+			<!-- clear filters -->
+			<div class='chip transparent hide'>
+				<a class='' id='clear-filters' alt='Clear Filters' title='Clear Filters'>
+					<i class='material-icons'>close</i> Clear
+				</a>
+			</div>
+			<!-- clear filters -->
+
+			<!-- enable dashboard -->
+			<div id='toggle-test-view-charts' class='chip transparent'>
+				<a class='pink-text' id='enable-dashboard' alt='Enable Dashboard' title='Enable Dashboard'>
+					<i class='material-icons'>track_changes</i> Dashboard
+				</a>
+			</div>
+			<!-- enable dashboard -->
+
+			<!-- search -->
+			<div class='chip transparent' alt='Search Tests' title='Search Tests'>
+				<a href="#" class='search-div'>
+					<i class='material-icons'>search</i> Search
+				</a>
+
+				<div class='input-field left hide'>
+					<input id='search-tests' type='text' class='validate browser-default' placeholder='Search Tests...'>
+				</div>
+				
+			</div>
+			<!-- search -->
+		</div>
+	</section>
+
+
+<div id='test-view-charts' class='subview-full'>
+	<div id='charts-row' class='row nm-v nm-h'>
+		<div class='col s12 m6 l6 np-h'>
+			<div class='card-panel nm-v'>
+				<div class='left panel-name'>Tests</div>
+				<div class='chart-box'>
+					<canvas id='parent-analysis' width='100' height='80'></canvas>
+				</div>
+				<div class='block text-small'>
+					<span><span class='strong'>62</span> test(s) passed</span>
+				</div>
+				<div class='block text-small'>
+					<span class='strong'>0</span> test(s) failed, <span class='strong'>0</span> others
+				</div>
+			</div>
+		</div>
+		
+		<div class='col s12 m6 l6 np-h'>
+			<div class='card-panel nm-v'>
+				<div class='left panel-name'>Steps</div>
+				<div class='chart-box'>
+					<canvas id='child-analysis' width='100' height='80'></canvas>
+				</div>
+				<div class='block text-small'>
+					<span><span class='strong'>62</span> step(s) passed</span>
+				</div>
+				<div class='block text-small'>
+					<span class='strong'>0</span> step(s) failed, <span class='strong'>27</span> others
+				</div>
+			</div>
+		</div>
+		
+	</div>
+</div>
+
+	<div class='subview-left left'>
+		
+		<div class='view-summary'>
+			<h5>Tests</h3>
+			<ul id='test-collection' class='test-collection'>
+				
+				
+				<li class='test displayed active has-leaf pass' status='pass' bdd='false' test-id='1'>
+					<div class='test-heading'>
+						<span class='test-name'>Verify addition and deletion of person details using Age Ranger APIs</span>
+						<span class='test-time'>Sep 17, 2017 7:14:06 PM</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Sep 17, 2017 7:14:06 PM</span>
+	<span class='label end-time'>Sep 17, 2017 7:14:13 PM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 0m 6s+732ms</span>
+</div>
+	<div class='test-attributes'>
+			<div class='category-list'>
+				<span class='category label white-text'>@APITests</span>
+			</div>
+	</div>
+	<ul class='collapsible node-list' data-collapsible='accordion'>
+		
+				<li class='node level-1  pass' status='pass' test-id='2'>
+					<div class='collapsible-header'>
+						<div class='node-name'>Scenario: Add Person details using AddPerson API and verify Person being added using GetAllPeople API</div>						
+						<span class='node-time'>Sep 17, 2017 7:14:06 PM</span>
+						<span class='node-duration'>0h 0m 4s+690ms</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+						<ul class='collapsible node-list' data-collapsible='accordion'>
+				<li class='node level-2 leaf pass' status='pass' test-id='3'>
+					<div class='collapsible-header'>
+						<div class='node-name'>Given person is created via AddPerson API</div>						
+						<span class='node-time'>Sep 17, 2017 7:14:06 PM</span>
+						<span class='node-duration'>0h 0m 4s+25ms</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+						<div class='collapsible-body'>
+								<div class='node-steps'>
+									<table class='bordered table-results'>
+										<thead>
+											<tr>
+												<th>Status</th>
+												<th>Timestamp</th>
+												<th>Details</th>
+											</tr>
+										</thead>
+										<tbody>
+												<tr class='log' status='info'>
+													<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+													<td class='timestamp'>7:14:06 PM</td>
+													<td class='step-details'><table><tr><td>firstName</td><td>lastName</td><td>age</td><td>ageGroup</td></tr><tr><td>APIFirst</td><td>APILast</td><td>0</td><td>Toddler</td></tr></table></td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>7:14:10 PM</td>
+													<td class='step-details'>passed</td>
+												</tr>
+										</tbody>
+									</table>
+								</div>
+						</div>
+				</li>
+				<li class='node level-2 leaf pass' status='pass' test-id='4'>
+					<div class='collapsible-header'>
+						<div class='node-name'>When GetAllPeople API is called</div>						
+						<span class='node-time'>Sep 17, 2017 7:14:10 PM</span>
+						<span class='node-duration'>0h 0m 0s+642ms</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+						<div class='collapsible-body'>
+								<div class='node-steps'>
+									<table class='bordered table-results'>
+										<thead>
+											<tr>
+												<th>Status</th>
+												<th>Timestamp</th>
+												<th>Details</th>
+											</tr>
+										</thead>
+										<tbody>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>7:14:11 PM</td>
+													<td class='step-details'>passed</td>
+												</tr>
+										</tbody>
+									</table>
+								</div>
+						</div>
+				</li>
+				<li class='node level-2 leaf pass' status='pass' test-id='5'>
+					<div class='collapsible-header'>
+						<div class='node-name'>Then person details should be available</div>						
+						<span class='node-time'>Sep 17, 2017 7:14:11 PM</span>
+						<span class='node-duration'>0h 0m 0s+1ms</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+						<div class='collapsible-body'>
+								<div class='node-steps'>
+									<table class='bordered table-results'>
+										<thead>
+											<tr>
+												<th>Status</th>
+												<th>Timestamp</th>
+												<th>Details</th>
+											</tr>
+										</thead>
+										<tbody>
+												<tr class='log' status='info'>
+													<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+													<td class='timestamp'>7:14:11 PM</td>
+													<td class='step-details'><table><tr><td>firstName</td><td>lastName</td><td>age</td><td>ageGroup</td></tr><tr><td>APIFirst</td><td>APILast</td><td>0</td><td>Toddler</td></tr></table></td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>7:14:11 PM</td>
+													<td class='step-details'>passed</td>
+												</tr>
+										</tbody>
+									</table>
+								</div>
+						</div>
+				</li>
+						</ul>
+				</li>
+				<li class='node level-1  pass' status='pass' test-id='6'>
+					<div class='collapsible-header'>
+						<div class='node-name'>Scenario: Delete Person record using DeletePerson API</div>						
+						<span class='node-time'>Sep 17, 2017 7:14:11 PM</span>
+						<span class='node-duration'>0h 0m 2s+24ms</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+						<ul class='collapsible node-list' data-collapsible='accordion'>
+				<li class='node level-2 leaf pass' status='pass' test-id='7'>
+					<div class='collapsible-header'>
+						<div class='node-name'>Given person is deleted via DeletePerson API</div>						
+						<span class='node-time'>Sep 17, 2017 7:14:11 PM</span>
+						<span class='node-duration'>0h 0m 0s+660ms</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+						<div class='collapsible-body'>
+								<div class='node-steps'>
+									<table class='bordered table-results'>
+										<thead>
+											<tr>
+												<th>Status</th>
+												<th>Timestamp</th>
+												<th>Details</th>
+											</tr>
+										</thead>
+										<tbody>
+												<tr class='log' status='info'>
+													<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+													<td class='timestamp'>7:14:11 PM</td>
+													<td class='step-details'><table><tr><td>firstName</td><td>lastName</td><td>age</td><td>ageGroup</td></tr><tr><td>APIFirst</td><td>APILast</td><td>0</td><td>Toddler</td></tr></table></td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>7:14:12 PM</td>
+													<td class='step-details'>passed</td>
+												</tr>
+										</tbody>
+									</table>
+								</div>
+						</div>
+				</li>
+				<li class='node level-2 leaf pass' status='pass' test-id='8'>
+					<div class='collapsible-header'>
+						<div class='node-name'>When GetAllPeople API is called</div>						
+						<span class='node-time'>Sep 17, 2017 7:14:12 PM</span>
+						<span class='node-duration'>0h 0m 0s+750ms</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+						<div class='collapsible-body'>
+								<div class='node-steps'>
+									<table class='bordered table-results'>
+										<thead>
+											<tr>
+												<th>Status</th>
+												<th>Timestamp</th>
+												<th>Details</th>
+											</tr>
+										</thead>
+										<tbody>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>7:14:12 PM</td>
+													<td class='step-details'>passed</td>
+												</tr>
+										</tbody>
+									</table>
+								</div>
+						</div>
+				</li>
+				<li class='node level-2 leaf pass' status='pass' test-id='9'>
+					<div class='collapsible-header'>
+						<div class='node-name'>Then person details should not be available</div>						
+						<span class='node-time'>Sep 17, 2017 7:14:12 PM</span>
+						<span class='node-duration'>0h 0m 0s+607ms</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+						<div class='collapsible-body'>
+								<div class='node-steps'>
+									<table class='bordered table-results'>
+										<thead>
+											<tr>
+												<th>Status</th>
+												<th>Timestamp</th>
+												<th>Details</th>
+											</tr>
+										</thead>
+										<tbody>
+												<tr class='log' status='info'>
+													<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+													<td class='timestamp'>7:14:12 PM</td>
+													<td class='step-details'><table><tr><td>firstName</td><td>lastName</td><td>age</td><td>ageGroup</td></tr><tr><td>APIFirst</td><td>APILast</td><td>0</td><td>Toddler</td></tr></table></td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>7:14:13 PM</td>
+													<td class='step-details'>passed</td>
+												</tr>
+										</tbody>
+									</table>
+								</div>
+						</div>
+				</li>
+						</ul>
+				</li>
+	</ul>
+					</div>
+				</li>
+				
+				
+				<li class='test displayed active has-leaf pass' status='pass' bdd='false' test-id='10'>
+					<div class='test-heading'>
+						<span class='test-name'>Navigate to Age Ranger page</span>
+						<span class='test-time'>Sep 17, 2017 7:14:13 PM</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Sep 17, 2017 7:14:13 PM</span>
+	<span class='label end-time'>Sep 17, 2017 7:14:21 PM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 0m 8s+321ms</span>
+</div>
+	<div class='test-attributes'>
+			<div class='category-list'>
+				<span class='category label white-text'>@NavigateToAgeRanger</span>
+			</div>
+	</div>
+	<ul class='collapsible node-list' data-collapsible='accordion'>
+		
+				<li class='node level-1  pass' status='pass' test-id='11'>
+					<div class='collapsible-header'>
+						<div class='node-name'>Scenario: Navigate to Age Ranger page</div>						
+						<span class='node-time'>Sep 17, 2017 7:14:13 PM</span>
+						<span class='node-duration'>0h 0m 8s+321ms</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+						<ul class='collapsible node-list' data-collapsible='accordion'>
+				<li class='node level-2 leaf pass' status='pass' test-id='12'>
+					<div class='collapsible-header'>
+						<div class='node-name'>Given user is navigated to Age Ranger page</div>						
+						<span class='node-time'>Sep 17, 2017 7:14:13 PM</span>
+						<span class='node-duration'>0h 0m 8s+320ms</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+						<div class='collapsible-body'>
+								<div class='node-steps'>
+									<table class='bordered table-results'>
+										<thead>
+											<tr>
+												<th>Status</th>
+												<th>Timestamp</th>
+												<th>Details</th>
+											</tr>
+										</thead>
+										<tbody>
+												<tr class='log' status='info'>
+													<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+													<td class='timestamp'>7:14:13 PM</td>
+													<td class='step-details'><table><tr><td>url</td></tr><tr><td>http://ageranger.azurewebsites.net</td></tr></table></td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>7:14:21 PM</td>
+													<td class='step-details'>passed</td>
+												</tr>
+										</tbody>
+									</table>
+										<ul class='screenshots'>
+												<li><img data-featherlight='/Users/meghanav/eclipse-workspace/ageRangerAutomatedTests/reports/screenShots/ageRanger1.png' width='10%' src='' data-src='/Users/meghanav/eclipse-workspace/ageRangerAutomatedTests/reports/screenShots/ageRanger1.png'></li>
+										</ul>
+								</div>
+						</div>
+				</li>
+						</ul>
+				</li>
+	</ul>
+					</div>
+				</li>
+				
+				
+				<li class='test displayed active has-leaf pass' status='pass' bdd='false' test-id='13'>
+					<div class='test-heading'>
+						<span class='test-name'>Add Person Details</span>
+						<span class='test-time'>Sep 17, 2017 7:14:21 PM</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Sep 17, 2017 7:14:21 PM</span>
+	<span class='label end-time'>Sep 17, 2017 7:16:07 PM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 1m 45s+375ms</span>
+</div>
+	<div class='test-attributes'>
+			<div class='category-list'>
+				<span class='category label white-text'>@AddPerson</span>
+			</div>
+	</div>
+	<ul class='collapsible node-list' data-collapsible='accordion'>
+		
+				<li class='node level-1  pass' status='pass' test-id='14'>
+					<div class='collapsible-header'>
+						<div class='node-name'>Scenario: Click on Add icon</div>						
+						<span class='node-time'>Sep 17, 2017 7:14:21 PM</span>
+						<span class='node-duration'>0h 0m 1s+227ms</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+						<ul class='collapsible node-list' data-collapsible='accordion'>
+				<li class='node level-2 leaf pass' status='pass' test-id='15'>
+					<div class='collapsible-header'>
+						<div class='node-name'>Given user is on Age Ranger page</div>						
+						<span class='node-time'>Sep 17, 2017 7:14:21 PM</span>
+						<span class='node-duration'>0h 0m 0s+30ms</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+						<div class='collapsible-body'>
+								<div class='node-steps'>
+									<table class='bordered table-results'>
+										<thead>
+											<tr>
+												<th>Status</th>
+												<th>Timestamp</th>
+												<th>Details</th>
+											</tr>
+										</thead>
+										<tbody>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>7:14:21 PM</td>
+													<td class='step-details'>passed</td>
+												</tr>
+										</tbody>
+									</table>
+								</div>
+						</div>
+				</li>
+				<li class='node level-2 leaf pass' status='pass' test-id='16'>
+					<div class='collapsible-header'>
+						<div class='node-name'>When Add icon is clicked</div>						
+						<span class='node-time'>Sep 17, 2017 7:14:21 PM</span>
+						<span class='node-duration'>0h 0m 1s+114ms</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+						<div class='collapsible-body'>
+								<div class='node-steps'>
+									<table class='bordered table-results'>
+										<thead>
+											<tr>
+												<th>Status</th>
+												<th>Timestamp</th>
+												<th>Details</th>
+											</tr>
+										</thead>
+										<tbody>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>7:14:22 PM</td>
+													<td class='step-details'>passed</td>
+												</tr>
+										</tbody>
+									</table>
+										<ul class='screenshots'>
+												<li><img data-featherlight='/Users/meghanav/eclipse-workspace/ageRangerAutomatedTests/reports/screenShots/ageRanger2.png' width='10%' src='' data-src='/Users/meghanav/eclipse-workspace/ageRangerAutomatedTests/reports/screenShots/ageRanger2.png'></li>
+										</ul>
+								</div>
+						</div>
+				</li>
+				<li class='node level-2 leaf pass' status='pass' test-id='17'>
+					<div class='collapsible-header'>
+						<div class='node-name'>Then New person modal window should be displayed</div>						
+						<span class='node-time'>Sep 17, 2017 7:14:22 PM</span>
+						<span class='node-duration'>0h 0m 0s+81ms</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+						<div class='collapsible-body'>
+								<div class='node-steps'>
+									<table class='bordered table-results'>
+										<thead>
+											<tr>
+												<th>Status</th>
+												<th>Timestamp</th>
+												<th>Details</th>
+											</tr>
+										</thead>
+										<tbody>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>7:14:23 PM</td>
+													<td class='step-details'>passed</td>
+												</tr>
+										</tbody>
+									</table>
+								</div>
+						</div>
+				</li>
+						</ul>
+				</li>
+				<li class='node level-1  pass' status='pass' test-id='18'>
+					<div class='collapsible-header'>
+						<div class='node-name'>Scenario: Add Person details and verify Age Group</div>						
+						<span class='node-time'>Sep 17, 2017 7:14:23 PM</span>
+						<span class='node-duration'>0h 1m 41s+867ms</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+						<ul class='collapsible node-list' data-collapsible='accordion'>
+				<li class='node level-2 leaf pass' status='pass' test-id='19'>
+					<div class='collapsible-header'>
+						<div class='node-name'>Given user is on New Person modal window</div>						
+						<span class='node-time'>Sep 17, 2017 7:14:23 PM</span>
+						<span class='node-duration'>0h 0m 0s+32ms</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+						<div class='collapsible-body'>
+								<div class='node-steps'>
+									<table class='bordered table-results'>
+										<thead>
+											<tr>
+												<th>Status</th>
+												<th>Timestamp</th>
+												<th>Details</th>
+											</tr>
+										</thead>
+										<tbody>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>7:14:23 PM</td>
+													<td class='step-details'>passed</td>
+												</tr>
+										</tbody>
+									</table>
+								</div>
+						</div>
+				</li>
+				<li class='node level-2 leaf pass' status='pass' test-id='20'>
+					<div class='collapsible-header'>
+						<div class='node-name'>When person details are submitted</div>						
+						<span class='node-time'>Sep 17, 2017 7:14:23 PM</span>
+						<span class='node-duration'>0h 1m 3s+670ms</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+						<div class='collapsible-body'>
+								<div class='node-steps'>
+									<table class='bordered table-results'>
+										<thead>
+											<tr>
+												<th>Status</th>
+												<th>Timestamp</th>
+												<th>Details</th>
+											</tr>
+										</thead>
+										<tbody>
+												<tr class='log' status='info'>
+													<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+													<td class='timestamp'>7:14:23 PM</td>
+													<td class='step-details'><table><tr><td>firstName</td><td>lastName</td><td>age</td></tr><tr><td>John</td><td>Mathew</td><td>0</td></tr><tr><td>Jim</td><td>Parker</td><td>2</td></tr><tr><td>Sophia</td><td>Ran</td><td>14</td></tr><tr><td>Wendi</td><td>Blake</td><td>20</td></tr><tr><td>ABCDEFGHIJKLM</td><td>NOPQRSTUVWXYZ</td><td>25</td></tr><tr><td>abcdefghijklm</td><td>nopqrstuvwxyz</td><td>30</td></tr><tr><td>12345</td><td>67890</td><td>50</td></tr><tr><td>ABCDEFGHIJKLMNOPQRSTUVWXYZ</td><td>abcdefghijklmnopqrstuvwxyz</td><td>70</td></tr><tr><td>ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklm</td><td>nopqrstuvwxyz1234567890</td><td>99</td></tr><tr><td>~`!@#$%^&*()_+</td><td>-=\{}[]:";<>?,./</td><td>110</td></tr><tr><td>ABCDEFGHIJKLMNOPQRSTUVWXY abcdefghijklmnopqrstuvwxyxz1234567890 ~`!@#$%^&*()_+</td><td>-=\{}[]:";<>?,./</td><td>199</td></tr><tr><td>Qwer toyu io pa sdfi iouguy rsepk vfdweu nopra xh Hu uy yuityu tyu ityt tyoip kl;op[ok kpoo ijjio pp fguhjj</td><td>[ mbvvxz seqw guhu frtdetu hiogyu gouyf ftyi gy itrt hniohutyu dfrfyuoo gyudeew nbjkfgch hgty</td><td>4999</td></tr></table></td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>7:15:26 PM</td>
+													<td class='step-details'>passed</td>
+												</tr>
+										</tbody>
+									</table>
+										<ul class='screenshots'>
+												<li><img data-featherlight='/Users/meghanav/eclipse-workspace/ageRangerAutomatedTests/reports/screenShots/ageRanger3.png' width='10%' src='' data-src='/Users/meghanav/eclipse-workspace/ageRangerAutomatedTests/reports/screenShots/ageRanger3.png'></li>
+												<li><img data-featherlight='/Users/meghanav/eclipse-workspace/ageRangerAutomatedTests/reports/screenShots/ageRanger4.png' width='10%' src='' data-src='/Users/meghanav/eclipse-workspace/ageRangerAutomatedTests/reports/screenShots/ageRanger4.png'></li>
+												<li><img data-featherlight='/Users/meghanav/eclipse-workspace/ageRangerAutomatedTests/reports/screenShots/ageRanger5.png' width='10%' src='' data-src='/Users/meghanav/eclipse-workspace/ageRangerAutomatedTests/reports/screenShots/ageRanger5.png'></li>
+												<li><img data-featherlight='/Users/meghanav/eclipse-workspace/ageRangerAutomatedTests/reports/screenShots/ageRanger6.png' width='10%' src='' data-src='/Users/meghanav/eclipse-workspace/ageRangerAutomatedTests/reports/screenShots/ageRanger6.png'></li>
+												<li><img data-featherlight='/Users/meghanav/eclipse-workspace/ageRangerAutomatedTests/reports/screenShots/ageRanger7.png' width='10%' src='' data-src='/Users/meghanav/eclipse-workspace/ageRangerAutomatedTests/reports/screenShots/ageRanger7.png'></li>
+												<li><img data-featherlight='/Users/meghanav/eclipse-workspace/ageRangerAutomatedTests/reports/screenShots/ageRanger8.png' width='10%' src='' data-src='/Users/meghanav/eclipse-workspace/ageRangerAutomatedTests/reports/screenShots/ageRanger8.png'></li>
+												<li><img data-featherlight='/Users/meghanav/eclipse-workspace/ageRangerAutomatedTests/reports/screenShots/ageRanger9.png' width='10%' src='' data-src='/Users/meghanav/eclipse-workspace/ageRangerAutomatedTests/reports/screenShots/ageRanger9.png'></li>
+												<li><img data-featherlight='/Users/meghanav/eclipse-workspace/ageRangerAutomatedTests/reports/screenShots/ageRanger10.png' width='10%' src='' data-src='/Users/meghanav/eclipse-workspace/ageRangerAutomatedTests/reports/screenShots/ageRanger10.png'></li>
+												<li><img data-featherlight='/Users/meghanav/eclipse-workspace/ageRangerAutomatedTests/reports/screenShots/ageRanger11.png' width='10%' src='' data-src='/Users/meghanav/eclipse-workspace/ageRangerAutomatedTests/reports/screenShots/ageRanger11.png'></li>
+												<li><img data-featherlight='/Users/meghanav/eclipse-workspace/ageRangerAutomatedTests/reports/screenShots/ageRanger12.png' width='10%' src='' data-src='/Users/meghanav/eclipse-workspace/ageRangerAutomatedTests/reports/screenShots/ageRanger12.png'></li>
+												<li><img data-featherlight='/Users/meghanav/eclipse-workspace/ageRangerAutomatedTests/reports/screenShots/ageRanger13.png' width='10%' src='' data-src='/Users/meghanav/eclipse-workspace/ageRangerAutomatedTests/reports/screenShots/ageRanger13.png'></li>
+												<li><img data-featherlight='/Users/meghanav/eclipse-workspace/ageRangerAutomatedTests/reports/screenShots/ageRanger14.png' width='10%' src='' data-src='/Users/meghanav/eclipse-workspace/ageRangerAutomatedTests/reports/screenShots/ageRanger14.png'></li>
+												<li><img data-featherlight='/Users/meghanav/eclipse-workspace/ageRangerAutomatedTests/reports/screenShots/ageRanger15.png' width='10%' src='' data-src='/Users/meghanav/eclipse-workspace/ageRangerAutomatedTests/reports/screenShots/ageRanger15.png'></li>
+												<li><img data-featherlight='/Users/meghanav/eclipse-workspace/ageRangerAutomatedTests/reports/screenShots/ageRanger16.png' width='10%' src='' data-src='/Users/meghanav/eclipse-workspace/ageRangerAutomatedTests/reports/screenShots/ageRanger16.png'></li>
+												<li><img data-featherlight='/Users/meghanav/eclipse-workspace/ageRangerAutomatedTests/reports/screenShots/ageRanger17.png' width='10%' src='' data-src='/Users/meghanav/eclipse-workspace/ageRangerAutomatedTests/reports/screenShots/ageRanger17.png'></li>
+												<li><img data-featherlight='/Users/meghanav/eclipse-workspace/ageRangerAutomatedTests/reports/screenShots/ageRanger18.png' width='10%' src='' data-src='/Users/meghanav/eclipse-workspace/ageRangerAutomatedTests/reports/screenShots/ageRanger18.png'></li>
+												<li><img data-featherlight='/Users/meghanav/eclipse-workspace/ageRangerAutomatedTests/reports/screenShots/ageRanger19.png' width='10%' src='' data-src='/Users/meghanav/eclipse-workspace/ageRangerAutomatedTests/reports/screenShots/ageRanger19.png'></li>
+												<li><img data-featherlight='/Users/meghanav/eclipse-workspace/ageRangerAutomatedTests/reports/screenShots/ageRanger20.png' width='10%' src='' data-src='/Users/meghanav/eclipse-workspace/ageRangerAutomatedTests/reports/screenShots/ageRanger20.png'></li>
+												<li><img data-featherlight='/Users/meghanav/eclipse-workspace/ageRangerAutomatedTests/reports/screenShots/ageRanger21.png' width='10%' src='' data-src='/Users/meghanav/eclipse-workspace/ageRangerAutomatedTests/reports/screenShots/ageRanger21.png'></li>
+												<li><img data-featherlight='/Users/meghanav/eclipse-workspace/ageRangerAutomatedTests/reports/screenShots/ageRanger22.png' width='10%' src='' data-src='/Users/meghanav/eclipse-workspace/ageRangerAutomatedTests/reports/screenShots/ageRanger22.png'></li>
+												<li><img data-featherlight='/Users/meghanav/eclipse-workspace/ageRangerAutomatedTests/reports/screenShots/ageRanger23.png' width='10%' src='' data-src='/Users/meghanav/eclipse-workspace/ageRangerAutomatedTests/reports/screenShots/ageRanger23.png'></li>
+												<li><img data-featherlight='/Users/meghanav/eclipse-workspace/ageRangerAutomatedTests/reports/screenShots/ageRanger24.png' width='10%' src='' data-src='/Users/meghanav/eclipse-workspace/ageRangerAutomatedTests/reports/screenShots/ageRanger24.png'></li>
+												<li><img data-featherlight='/Users/meghanav/eclipse-workspace/ageRangerAutomatedTests/reports/screenShots/ageRanger25.png' width='10%' src='' data-src='/Users/meghanav/eclipse-workspace/ageRangerAutomatedTests/reports/screenShots/ageRanger25.png'></li>
+												<li><img data-featherlight='/Users/meghanav/eclipse-workspace/ageRangerAutomatedTests/reports/screenShots/ageRanger26.png' width='10%' src='' data-src='/Users/meghanav/eclipse-workspace/ageRangerAutomatedTests/reports/screenShots/ageRanger26.png'></li>
+										</ul>
+								</div>
+						</div>
+				</li>
+				<li class='node level-2 leaf pass' status='pass' test-id='21'>
+					<div class='collapsible-header'>
+						<div class='node-name'>Then person details are saved and age group is determined</div>						
+						<span class='node-time'>Sep 17, 2017 7:15:26 PM</span>
+						<span class='node-duration'>0h 0m 38s+164ms</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+						<div class='collapsible-body'>
+								<div class='node-steps'>
+									<table class='bordered table-results'>
+										<thead>
+											<tr>
+												<th>Status</th>
+												<th>Timestamp</th>
+												<th>Details</th>
+											</tr>
+										</thead>
+										<tbody>
+												<tr class='log' status='info'>
+													<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+													<td class='timestamp'>7:15:26 PM</td>
+													<td class='step-details'><table><tr><td>firstName</td><td>lastName</td><td>age</td><td>ageGroup</td></tr><tr><td>John</td><td>Mathew</td><td>0</td><td>Toddler</td></tr><tr><td>Jim</td><td>Parker</td><td>2</td><td>Child</td></tr><tr><td>Sophia</td><td>Ran</td><td>14</td><td>Teenager</td></tr><tr><td>Wendi</td><td>Blake</td><td>20</td><td>Early twenties</td></tr><tr><td>ABCDEFGHIJKLM</td><td>NOPQRSTUVWXYZ</td><td>25</td><td>Almost thirty</td></tr><tr><td>abcdefghijklm</td><td>nopqrstuvwxyz</td><td>30</td><td>Very adult</td></tr><tr><td>12345</td><td>67890</td><td>50</td><td>Kinda old</td></tr><tr><td>ABCDEFGHIJKLMNOPQRSTUVWXYZ</td><td>abcdefghijklmnopqrstuvwxyz</td><td>70</td><td>Old</td></tr><tr><td>ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklm</td><td>nopqrstuvwxyz1234567890</td><td>99</td><td>Very old</td></tr><tr><td>~`!@#$%^&*()_+</td><td>-=\{}[]:";<>?,./</td><td>110</td><td>Crazy ancient</td></tr><tr><td>ABCDEFGHIJKLMNOPQRSTUVWXY abcdefghijklmnopqrstuvwxyxz1234567890 ~`!@#$%^&*()_+</td><td>-=\{}[]:";<>?,./</td><td>199</td><td>Vampire</td></tr><tr><td>Qwer toyu io pa sdfi iouguy rsepk vfdweu nopra xh Hu uy yuityu tyu ityt tyoip kl;op[ok kpoo ijjio pp fguhjj</td><td>[ mbvvxz seqw guhu frtdetu hiogyu gouyf ftyi gy itrt hniohutyu dfrfyuoo gyudeew nbjkfgch hgty</td><td>4999</td><td>Kauri tree</td></tr></table></td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>7:16:04 PM</td>
+													<td class='step-details'>passed</td>
+												</tr>
+										</tbody>
+									</table>
+								</div>
+						</div>
+				</li>
+						</ul>
+				</li>
+				<li class='node level-1  pass' status='pass' test-id='22'>
+					<div class='collapsible-header'>
+						<div class='node-name'>Scenario: Click on Add icon</div>						
+						<span class='node-time'>Sep 17, 2017 7:16:04 PM</span>
+						<span class='node-duration'>0h 0m 0s+657ms</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+						<ul class='collapsible node-list' data-collapsible='accordion'>
+				<li class='node level-2 leaf pass' status='pass' test-id='23'>
+					<div class='collapsible-header'>
+						<div class='node-name'>Given user is on Age Ranger page</div>						
+						<span class='node-time'>Sep 17, 2017 7:16:04 PM</span>
+						<span class='node-duration'>0h 0m 0s+22ms</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+						<div class='collapsible-body'>
+								<div class='node-steps'>
+									<table class='bordered table-results'>
+										<thead>
+											<tr>
+												<th>Status</th>
+												<th>Timestamp</th>
+												<th>Details</th>
+											</tr>
+										</thead>
+										<tbody>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>7:16:04 PM</td>
+													<td class='step-details'>passed</td>
+												</tr>
+										</tbody>
+									</table>
+								</div>
+						</div>
+				</li>
+				<li class='node level-2 leaf pass' status='pass' test-id='24'>
+					<div class='collapsible-header'>
+						<div class='node-name'>When Add icon is clicked</div>						
+						<span class='node-time'>Sep 17, 2017 7:16:04 PM</span>
+						<span class='node-duration'>0h 0m 0s+534ms</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+						<div class='collapsible-body'>
+								<div class='node-steps'>
+									<table class='bordered table-results'>
+										<thead>
+											<tr>
+												<th>Status</th>
+												<th>Timestamp</th>
+												<th>Details</th>
+											</tr>
+										</thead>
+										<tbody>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>7:16:05 PM</td>
+													<td class='step-details'>passed</td>
+												</tr>
+										</tbody>
+									</table>
+										<ul class='screenshots'>
+												<li><img data-featherlight='/Users/meghanav/eclipse-workspace/ageRangerAutomatedTests/reports/screenShots/ageRanger27.png' width='10%' src='' data-src='/Users/meghanav/eclipse-workspace/ageRangerAutomatedTests/reports/screenShots/ageRanger27.png'></li>
+										</ul>
+								</div>
+						</div>
+				</li>
+				<li class='node level-2 leaf pass' status='pass' test-id='25'>
+					<div class='collapsible-header'>
+						<div class='node-name'>Then New person modal window should be displayed</div>						
+						<span class='node-time'>Sep 17, 2017 7:16:05 PM</span>
+						<span class='node-duration'>0h 0m 0s+97ms</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+						<div class='collapsible-body'>
+								<div class='node-steps'>
+									<table class='bordered table-results'>
+										<thead>
+											<tr>
+												<th>Status</th>
+												<th>Timestamp</th>
+												<th>Details</th>
+											</tr>
+										</thead>
+										<tbody>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>7:16:05 PM</td>
+													<td class='step-details'>passed</td>
+												</tr>
+										</tbody>
+									</table>
+								</div>
+						</div>
+				</li>
+						</ul>
+				</li>
+				<li class='node level-1  pass' status='pass' test-id='26'>
+					<div class='collapsible-header'>
+						<div class='node-name'>Scenario: Verify if Person Name is populated in New Person window header when First Name and Last Name are entered</div>						
+						<span class='node-time'>Sep 17, 2017 7:16:05 PM</span>
+						<span class='node-duration'>0h 0m 1s+246ms</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+						<ul class='collapsible node-list' data-collapsible='accordion'>
+				<li class='node level-2 leaf pass' status='pass' test-id='27'>
+					<div class='collapsible-header'>
+						<div class='node-name'>Given user is on New Person modal window</div>						
+						<span class='node-time'>Sep 17, 2017 7:16:05 PM</span>
+						<span class='node-duration'>0h 0m 0s+28ms</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+						<div class='collapsible-body'>
+								<div class='node-steps'>
+									<table class='bordered table-results'>
+										<thead>
+											<tr>
+												<th>Status</th>
+												<th>Timestamp</th>
+												<th>Details</th>
+											</tr>
+										</thead>
+										<tbody>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>7:16:05 PM</td>
+													<td class='step-details'>passed</td>
+												</tr>
+										</tbody>
+									</table>
+								</div>
+						</div>
+				</li>
+				<li class='node level-2 leaf pass' status='pass' test-id='28'>
+					<div class='collapsible-header'>
+						<div class='node-name'>When person detials are entered</div>						
+						<span class='node-time'>Sep 17, 2017 7:16:05 PM</span>
+						<span class='node-duration'>0h 0m 1s+156ms</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+						<div class='collapsible-body'>
+								<div class='node-steps'>
+									<table class='bordered table-results'>
+										<thead>
+											<tr>
+												<th>Status</th>
+												<th>Timestamp</th>
+												<th>Details</th>
+											</tr>
+										</thead>
+										<tbody>
+												<tr class='log' status='info'>
+													<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+													<td class='timestamp'>7:16:05 PM</td>
+													<td class='step-details'><table><tr><td>firstName</td><td>lastName</td><td>age</td></tr><tr><td>John</td><td>Mathew</td><td></td></tr></table></td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>7:16:06 PM</td>
+													<td class='step-details'>passed</td>
+												</tr>
+										</tbody>
+									</table>
+										<ul class='screenshots'>
+												<li><img data-featherlight='/Users/meghanav/eclipse-workspace/ageRangerAutomatedTests/reports/screenShots/ageRanger28.png' width='10%' src='' data-src='/Users/meghanav/eclipse-workspace/ageRangerAutomatedTests/reports/screenShots/ageRanger28.png'></li>
+										</ul>
+								</div>
+						</div>
+				</li>
+				<li class='node level-2 leaf pass' status='pass' test-id='29'>
+					<div class='collapsible-header'>
+						<div class='node-name'>Then first and last name should be displayed in the header</div>						
+						<span class='node-time'>Sep 17, 2017 7:16:06 PM</span>
+						<span class='node-duration'>0h 0m 0s+60ms</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+						<div class='collapsible-body'>
+								<div class='node-steps'>
+									<table class='bordered table-results'>
+										<thead>
+											<tr>
+												<th>Status</th>
+												<th>Timestamp</th>
+												<th>Details</th>
+											</tr>
+										</thead>
+										<tbody>
+												<tr class='log' status='info'>
+													<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+													<td class='timestamp'>7:16:06 PM</td>
+													<td class='step-details'><table><tr><td>firstName</td><td>lastName</td></tr><tr><td>John</td><td>Mathew</td></tr></table></td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>7:16:06 PM</td>
+													<td class='step-details'>passed</td>
+												</tr>
+										</tbody>
+									</table>
+								</div>
+						</div>
+				</li>
+						</ul>
+				</li>
+				<li class='node level-1  pass' status='pass' test-id='30'>
+					<div class='collapsible-header'>
+						<div class='node-name'>Scenario: Close New Person modal window</div>						
+						<span class='node-time'>Sep 17, 2017 7:16:06 PM</span>
+						<span class='node-duration'>0h 0m 0s+371ms</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+						<ul class='collapsible node-list' data-collapsible='accordion'>
+				<li class='node level-2 leaf pass' status='pass' test-id='31'>
+					<div class='collapsible-header'>
+						<div class='node-name'>Given user is on New Person modal window</div>						
+						<span class='node-time'>Sep 17, 2017 7:16:06 PM</span>
+						<span class='node-duration'>0h 0m 0s+29ms</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+						<div class='collapsible-body'>
+								<div class='node-steps'>
+									<table class='bordered table-results'>
+										<thead>
+											<tr>
+												<th>Status</th>
+												<th>Timestamp</th>
+												<th>Details</th>
+											</tr>
+										</thead>
+										<tbody>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>7:16:06 PM</td>
+													<td class='step-details'>passed</td>
+												</tr>
+										</tbody>
+									</table>
+								</div>
+						</div>
+				</li>
+				<li class='node level-2 leaf pass' status='pass' test-id='32'>
+					<div class='collapsible-header'>
+						<div class='node-name'>When Close button is clicked</div>						
+						<span class='node-time'>Sep 17, 2017 7:16:06 PM</span>
+						<span class='node-duration'>0h 0m 0s+293ms</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+						<div class='collapsible-body'>
+								<div class='node-steps'>
+									<table class='bordered table-results'>
+										<thead>
+											<tr>
+												<th>Status</th>
+												<th>Timestamp</th>
+												<th>Details</th>
+											</tr>
+										</thead>
+										<tbody>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>7:16:07 PM</td>
+													<td class='step-details'>passed</td>
+												</tr>
+										</tbody>
+									</table>
+								</div>
+						</div>
+				</li>
+				<li class='node level-2 leaf pass' status='pass' test-id='33'>
+					<div class='collapsible-header'>
+						<div class='node-name'>Then modal window should be closed</div>						
+						<span class='node-time'>Sep 17, 2017 7:16:07 PM</span>
+						<span class='node-duration'>0h 0m 0s+48ms</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+						<div class='collapsible-body'>
+								<div class='node-steps'>
+									<table class='bordered table-results'>
+										<thead>
+											<tr>
+												<th>Status</th>
+												<th>Timestamp</th>
+												<th>Details</th>
+											</tr>
+										</thead>
+										<tbody>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>7:16:07 PM</td>
+													<td class='step-details'>passed</td>
+												</tr>
+										</tbody>
+									</table>
+								</div>
+						</div>
+				</li>
+						</ul>
+				</li>
+	</ul>
+					</div>
+				</li>
+				
+				
+				<li class='test displayed active has-leaf pass' status='pass' bdd='false' test-id='34'>
+					<div class='test-heading'>
+						<span class='test-name'>Edit Person Details</span>
+						<span class='test-time'>Sep 17, 2017 7:16:07 PM</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Sep 17, 2017 7:16:07 PM</span>
+	<span class='label end-time'>Sep 17, 2017 7:16:16 PM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 0m 9s+710ms</span>
+</div>
+	<div class='test-attributes'>
+			<div class='category-list'>
+				<span class='category label white-text'>@EditPerson</span>
+			</div>
+	</div>
+	<ul class='collapsible node-list' data-collapsible='accordion'>
+		
+				<li class='node level-1  pass' status='pass' test-id='35'>
+					<div class='collapsible-header'>
+						<div class='node-name'>Scenario: Click Edit icon</div>						
+						<span class='node-time'>Sep 17, 2017 7:16:07 PM</span>
+						<span class='node-duration'>0h 0m 0s+903ms</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+						<ul class='collapsible node-list' data-collapsible='accordion'>
+				<li class='node level-2 leaf pass' status='pass' test-id='36'>
+					<div class='collapsible-header'>
+						<div class='node-name'>Given user is on Age Ranger page</div>						
+						<span class='node-time'>Sep 17, 2017 7:16:07 PM</span>
+						<span class='node-duration'>0h 0m 0s+24ms</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+						<div class='collapsible-body'>
+								<div class='node-steps'>
+									<table class='bordered table-results'>
+										<thead>
+											<tr>
+												<th>Status</th>
+												<th>Timestamp</th>
+												<th>Details</th>
+											</tr>
+										</thead>
+										<tbody>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>7:16:07 PM</td>
+													<td class='step-details'>passed</td>
+												</tr>
+										</tbody>
+									</table>
+								</div>
+						</div>
+				</li>
+				<li class='node level-2 leaf pass' status='pass' test-id='37'>
+					<div class='collapsible-header'>
+						<div class='node-name'>When Edit icon is clicked for a record</div>						
+						<span class='node-time'>Sep 17, 2017 7:16:07 PM</span>
+						<span class='node-duration'>0h 0m 0s+589ms</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+						<div class='collapsible-body'>
+								<div class='node-steps'>
+									<table class='bordered table-results'>
+										<thead>
+											<tr>
+												<th>Status</th>
+												<th>Timestamp</th>
+												<th>Details</th>
+											</tr>
+										</thead>
+										<tbody>
+												<tr class='log' status='info'>
+													<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+													<td class='timestamp'>7:16:07 PM</td>
+													<td class='step-details'><table><tr><td>firstName</td><td>lastName</td></tr><tr><td>John</td><td>Mathew</td></tr></table></td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>7:16:07 PM</td>
+													<td class='step-details'>passed</td>
+												</tr>
+										</tbody>
+									</table>
+										<ul class='screenshots'>
+												<li><img data-featherlight='/Users/meghanav/eclipse-workspace/ageRangerAutomatedTests/reports/screenShots/ageRanger29.png' width='10%' src='' data-src='/Users/meghanav/eclipse-workspace/ageRangerAutomatedTests/reports/screenShots/ageRanger29.png'></li>
+										</ul>
+								</div>
+						</div>
+				</li>
+				<li class='node level-2 leaf pass' status='pass' test-id='38'>
+					<div class='collapsible-header'>
+						<div class='node-name'>Then Edit Person modal window is displayed with person details</div>						
+						<span class='node-time'>Sep 17, 2017 7:16:07 PM</span>
+						<span class='node-duration'>0h 0m 0s+288ms</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+						<div class='collapsible-body'>
+								<div class='node-steps'>
+									<table class='bordered table-results'>
+										<thead>
+											<tr>
+												<th>Status</th>
+												<th>Timestamp</th>
+												<th>Details</th>
+											</tr>
+										</thead>
+										<tbody>
+												<tr class='log' status='info'>
+													<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+													<td class='timestamp'>7:16:07 PM</td>
+													<td class='step-details'><table><tr><td>firstName</td><td>lastName</td><td>age</td></tr><tr><td>John</td><td>Mathew</td><td>0</td></tr></table></td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>7:16:08 PM</td>
+													<td class='step-details'>passed</td>
+												</tr>
+										</tbody>
+									</table>
+								</div>
+						</div>
+				</li>
+						</ul>
+				</li>
+				<li class='node level-1  pass' status='pass' test-id='39'>
+					<div class='collapsible-header'>
+						<div class='node-name'>Scenario: Update person detials</div>						
+						<span class='node-time'>Sep 17, 2017 7:16:08 PM</span>
+						<span class='node-duration'>0h 0m 7s+720ms</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+						<ul class='collapsible node-list' data-collapsible='accordion'>
+				<li class='node level-2 leaf pass' status='pass' test-id='40'>
+					<div class='collapsible-header'>
+						<div class='node-name'>Given user is on Edit Person modal window</div>						
+						<span class='node-time'>Sep 17, 2017 7:16:08 PM</span>
+						<span class='node-duration'>0h 0m 0s+27ms</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+						<div class='collapsible-body'>
+								<div class='node-steps'>
+									<table class='bordered table-results'>
+										<thead>
+											<tr>
+												<th>Status</th>
+												<th>Timestamp</th>
+												<th>Details</th>
+											</tr>
+										</thead>
+										<tbody>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>7:16:08 PM</td>
+													<td class='step-details'>passed</td>
+												</tr>
+										</tbody>
+									</table>
+								</div>
+						</div>
+				</li>
+				<li class='node level-2 leaf pass' status='pass' test-id='41'>
+					<div class='collapsible-header'>
+						<div class='node-name'>When person details are submitted</div>						
+						<span class='node-time'>Sep 17, 2017 7:16:08 PM</span>
+						<span class='node-duration'>0h 0m 4s+519ms</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+						<div class='collapsible-body'>
+								<div class='node-steps'>
+									<table class='bordered table-results'>
+										<thead>
+											<tr>
+												<th>Status</th>
+												<th>Timestamp</th>
+												<th>Details</th>
+											</tr>
+										</thead>
+										<tbody>
+												<tr class='log' status='info'>
+													<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+													<td class='timestamp'>7:16:08 PM</td>
+													<td class='step-details'><table><tr><td>firstName</td><td>lastName</td><td>age</td></tr><tr><td>Ashlie</td><td>Olsen</td><td>15</td></tr></table></td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>7:16:12 PM</td>
+													<td class='step-details'>passed</td>
+												</tr>
+										</tbody>
+									</table>
+										<ul class='screenshots'>
+												<li><img data-featherlight='/Users/meghanav/eclipse-workspace/ageRangerAutomatedTests/reports/screenShots/ageRanger30.png' width='10%' src='' data-src='/Users/meghanav/eclipse-workspace/ageRangerAutomatedTests/reports/screenShots/ageRanger30.png'></li>
+												<li><img data-featherlight='/Users/meghanav/eclipse-workspace/ageRangerAutomatedTests/reports/screenShots/ageRanger31.png' width='10%' src='' data-src='/Users/meghanav/eclipse-workspace/ageRangerAutomatedTests/reports/screenShots/ageRanger31.png'></li>
+										</ul>
+								</div>
+						</div>
+				</li>
+				<li class='node level-2 leaf pass' status='pass' test-id='42'>
+					<div class='collapsible-header'>
+						<div class='node-name'>Then person details are saved and age group is determined</div>						
+						<span class='node-time'>Sep 17, 2017 7:16:12 PM</span>
+						<span class='node-duration'>0h 0m 3s+172ms</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+						<div class='collapsible-body'>
+								<div class='node-steps'>
+									<table class='bordered table-results'>
+										<thead>
+											<tr>
+												<th>Status</th>
+												<th>Timestamp</th>
+												<th>Details</th>
+											</tr>
+										</thead>
+										<tbody>
+												<tr class='log' status='info'>
+													<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+													<td class='timestamp'>7:16:12 PM</td>
+													<td class='step-details'><table><tr><td>firstName</td><td>lastName</td><td>age</td><td>ageGroup</td></tr><tr><td>Ashlie</td><td>Olsen</td><td>15</td><td>Teenager</td></tr></table></td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>7:16:15 PM</td>
+													<td class='step-details'>passed</td>
+												</tr>
+										</tbody>
+									</table>
+								</div>
+						</div>
+				</li>
+						</ul>
+				</li>
+				<li class='node level-1  pass' status='pass' test-id='43'>
+					<div class='collapsible-header'>
+						<div class='node-name'>Scenario: Click Edit icon</div>						
+						<span class='node-time'>Sep 17, 2017 7:16:15 PM</span>
+						<span class='node-duration'>0h 0m 0s+803ms</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+						<ul class='collapsible node-list' data-collapsible='accordion'>
+				<li class='node level-2 leaf pass' status='pass' test-id='44'>
+					<div class='collapsible-header'>
+						<div class='node-name'>Given user is on Age Ranger page</div>						
+						<span class='node-time'>Sep 17, 2017 7:16:15 PM</span>
+						<span class='node-duration'>0h 0m 0s+26ms</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+						<div class='collapsible-body'>
+								<div class='node-steps'>
+									<table class='bordered table-results'>
+										<thead>
+											<tr>
+												<th>Status</th>
+												<th>Timestamp</th>
+												<th>Details</th>
+											</tr>
+										</thead>
+										<tbody>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>7:16:15 PM</td>
+													<td class='step-details'>passed</td>
+												</tr>
+										</tbody>
+									</table>
+								</div>
+						</div>
+				</li>
+				<li class='node level-2 leaf pass' status='pass' test-id='45'>
+					<div class='collapsible-header'>
+						<div class='node-name'>When Edit icon is clicked for a record</div>						
+						<span class='node-time'>Sep 17, 2017 7:16:15 PM</span>
+						<span class='node-duration'>0h 0m 0s+558ms</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+						<div class='collapsible-body'>
+								<div class='node-steps'>
+									<table class='bordered table-results'>
+										<thead>
+											<tr>
+												<th>Status</th>
+												<th>Timestamp</th>
+												<th>Details</th>
+											</tr>
+										</thead>
+										<tbody>
+												<tr class='log' status='info'>
+													<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+													<td class='timestamp'>7:16:15 PM</td>
+													<td class='step-details'><table><tr><td>firstName</td><td>lastName</td></tr><tr><td>Ashlie</td><td>Olsen</td></tr></table></td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>7:16:16 PM</td>
+													<td class='step-details'>passed</td>
+												</tr>
+										</tbody>
+									</table>
+										<ul class='screenshots'>
+												<li><img data-featherlight='/Users/meghanav/eclipse-workspace/ageRangerAutomatedTests/reports/screenShots/ageRanger32.png' width='10%' src='' data-src='/Users/meghanav/eclipse-workspace/ageRangerAutomatedTests/reports/screenShots/ageRanger32.png'></li>
+										</ul>
+								</div>
+						</div>
+				</li>
+				<li class='node level-2 leaf pass' status='pass' test-id='46'>
+					<div class='collapsible-header'>
+						<div class='node-name'>Then Edit Person modal window is displayed with person details</div>						
+						<span class='node-time'>Sep 17, 2017 7:16:16 PM</span>
+						<span class='node-duration'>0h 0m 0s+217ms</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+						<div class='collapsible-body'>
+								<div class='node-steps'>
+									<table class='bordered table-results'>
+										<thead>
+											<tr>
+												<th>Status</th>
+												<th>Timestamp</th>
+												<th>Details</th>
+											</tr>
+										</thead>
+										<tbody>
+												<tr class='log' status='info'>
+													<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+													<td class='timestamp'>7:16:16 PM</td>
+													<td class='step-details'><table><tr><td>firstName</td><td>lastName</td><td>age</td></tr><tr><td>Ashlie</td><td>Olsen</td><td>15</td></tr></table></td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>7:16:16 PM</td>
+													<td class='step-details'>passed</td>
+												</tr>
+										</tbody>
+									</table>
+								</div>
+						</div>
+				</li>
+						</ul>
+				</li>
+				<li class='node level-1  pass' status='pass' test-id='47'>
+					<div class='collapsible-header'>
+						<div class='node-name'>Scenario: Close Edit Person modal window</div>						
+						<span class='node-time'>Sep 17, 2017 7:16:16 PM</span>
+						<span class='node-duration'>0h 0m 0s+281ms</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+						<ul class='collapsible node-list' data-collapsible='accordion'>
+				<li class='node level-2 leaf pass' status='pass' test-id='48'>
+					<div class='collapsible-header'>
+						<div class='node-name'>Given user is on Edit Person modal window</div>						
+						<span class='node-time'>Sep 17, 2017 7:16:16 PM</span>
+						<span class='node-duration'>0h 0m 0s+26ms</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+						<div class='collapsible-body'>
+								<div class='node-steps'>
+									<table class='bordered table-results'>
+										<thead>
+											<tr>
+												<th>Status</th>
+												<th>Timestamp</th>
+												<th>Details</th>
+											</tr>
+										</thead>
+										<tbody>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>7:16:16 PM</td>
+													<td class='step-details'>passed</td>
+												</tr>
+										</tbody>
+									</table>
+								</div>
+						</div>
+				</li>
+				<li class='node level-2 leaf pass' status='pass' test-id='49'>
+					<div class='collapsible-header'>
+						<div class='node-name'>When Close button is clicked</div>						
+						<span class='node-time'>Sep 17, 2017 7:16:16 PM</span>
+						<span class='node-duration'>0h 0m 0s+191ms</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+						<div class='collapsible-body'>
+								<div class='node-steps'>
+									<table class='bordered table-results'>
+										<thead>
+											<tr>
+												<th>Status</th>
+												<th>Timestamp</th>
+												<th>Details</th>
+											</tr>
+										</thead>
+										<tbody>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>7:16:16 PM</td>
+													<td class='step-details'>passed</td>
+												</tr>
+										</tbody>
+									</table>
+								</div>
+						</div>
+				</li>
+				<li class='node level-2 leaf pass' status='pass' test-id='50'>
+					<div class='collapsible-header'>
+						<div class='node-name'>Then modal window should be closed</div>						
+						<span class='node-time'>Sep 17, 2017 7:16:16 PM</span>
+						<span class='node-duration'>0h 0m 0s+62ms</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+						<div class='collapsible-body'>
+								<div class='node-steps'>
+									<table class='bordered table-results'>
+										<thead>
+											<tr>
+												<th>Status</th>
+												<th>Timestamp</th>
+												<th>Details</th>
+											</tr>
+										</thead>
+										<tbody>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>7:16:16 PM</td>
+													<td class='step-details'>passed</td>
+												</tr>
+										</tbody>
+									</table>
+								</div>
+						</div>
+				</li>
+						</ul>
+				</li>
+	</ul>
+					</div>
+				</li>
+				
+				
+				<li class='test displayed active has-leaf pass' status='pass' bdd='false' test-id='51'>
+					<div class='test-heading'>
+						<span class='test-name'>Search Person Details</span>
+						<span class='test-time'>Sep 17, 2017 7:16:16 PM</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Sep 17, 2017 7:16:16 PM</span>
+	<span class='label end-time'>Sep 17, 2017 7:16:39 PM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 0m 22s+307ms</span>
+</div>
+	<div class='test-attributes'>
+			<div class='category-list'>
+				<span class='category label white-text'>@SearchPerson</span>
+			</div>
+	</div>
+	<ul class='collapsible node-list' data-collapsible='accordion'>
+		
+				<li class='node level-1  pass' status='pass' test-id='52'>
+					<div class='collapsible-header'>
+						<div class='node-name'>Scenario: Search with person last name on Age Ranger page</div>						
+						<span class='node-time'>Sep 17, 2017 7:16:16 PM</span>
+						<span class='node-duration'>0h 0m 6s+702ms</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+						<ul class='collapsible node-list' data-collapsible='accordion'>
+				<li class='node level-2 leaf pass' status='pass' test-id='53'>
+					<div class='collapsible-header'>
+						<div class='node-name'>Given user is on Age Ranger page</div>						
+						<span class='node-time'>Sep 17, 2017 7:16:16 PM</span>
+						<span class='node-duration'>0h 0m 0s+56ms</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+						<div class='collapsible-body'>
+								<div class='node-steps'>
+									<table class='bordered table-results'>
+										<thead>
+											<tr>
+												<th>Status</th>
+												<th>Timestamp</th>
+												<th>Details</th>
+											</tr>
+										</thead>
+										<tbody>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>7:16:16 PM</td>
+													<td class='step-details'>passed</td>
+												</tr>
+										</tbody>
+									</table>
+								</div>
+						</div>
+				</li>
+				<li class='node level-2 leaf pass' status='pass' test-id='54'>
+					<div class='collapsible-header'>
+						<div class='node-name'>When person name is entered in the search field</div>						
+						<span class='node-time'>Sep 17, 2017 7:16:16 PM</span>
+						<span class='node-duration'>0h 0m 4s+579ms</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+						<div class='collapsible-body'>
+								<div class='node-steps'>
+									<table class='bordered table-results'>
+										<thead>
+											<tr>
+												<th>Status</th>
+												<th>Timestamp</th>
+												<th>Details</th>
+											</tr>
+										</thead>
+										<tbody>
+												<tr class='log' status='info'>
+													<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+													<td class='timestamp'>7:16:16 PM</td>
+													<td class='step-details'><table><tr><td>searchText</td></tr><tr><td>Blake</td></tr></table></td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>7:16:21 PM</td>
+													<td class='step-details'>passed</td>
+												</tr>
+										</tbody>
+									</table>
+										<ul class='screenshots'>
+												<li><img data-featherlight='/Users/meghanav/eclipse-workspace/ageRangerAutomatedTests/reports/screenShots/ageRanger33.png' width='10%' src='' data-src='/Users/meghanav/eclipse-workspace/ageRangerAutomatedTests/reports/screenShots/ageRanger33.png'></li>
+										</ul>
+								</div>
+						</div>
+				</li>
+				<li class='node level-2 leaf pass' status='pass' test-id='55'>
+					<div class='collapsible-header'>
+						<div class='node-name'>Then person details are displayed</div>						
+						<span class='node-time'>Sep 17, 2017 7:16:21 PM</span>
+						<span class='node-duration'>0h 0m 2s+66ms</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+						<div class='collapsible-body'>
+								<div class='node-steps'>
+									<table class='bordered table-results'>
+										<thead>
+											<tr>
+												<th>Status</th>
+												<th>Timestamp</th>
+												<th>Details</th>
+											</tr>
+										</thead>
+										<tbody>
+												<tr class='log' status='info'>
+													<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+													<td class='timestamp'>7:16:21 PM</td>
+													<td class='step-details'><table><tr><td>firstName</td><td>lastName</td><td>age</td><td>ageGroup</td></tr><tr><td>Wendi</td><td>Blake</td><td>20</td><td>Early twenties</td></tr></table></td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>7:16:23 PM</td>
+													<td class='step-details'>passed</td>
+												</tr>
+										</tbody>
+									</table>
+								</div>
+						</div>
+				</li>
+						</ul>
+				</li>
+				<li class='node level-1  pass' status='pass' test-id='56'>
+					<div class='collapsible-header'>
+						<div class='node-name'>Scenario: Search with person first name on Age Ranger page</div>						
+						<span class='node-time'>Sep 17, 2017 7:16:23 PM</span>
+						<span class='node-duration'>0h 0m 6s+545ms</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+						<ul class='collapsible node-list' data-collapsible='accordion'>
+				<li class='node level-2 leaf pass' status='pass' test-id='57'>
+					<div class='collapsible-header'>
+						<div class='node-name'>Given user is on Age Ranger page</div>						
+						<span class='node-time'>Sep 17, 2017 7:16:23 PM</span>
+						<span class='node-duration'>0h 0m 0s+28ms</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+						<div class='collapsible-body'>
+								<div class='node-steps'>
+									<table class='bordered table-results'>
+										<thead>
+											<tr>
+												<th>Status</th>
+												<th>Timestamp</th>
+												<th>Details</th>
+											</tr>
+										</thead>
+										<tbody>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>7:16:23 PM</td>
+													<td class='step-details'>passed</td>
+												</tr>
+										</tbody>
+									</table>
+								</div>
+						</div>
+				</li>
+				<li class='node level-2 leaf pass' status='pass' test-id='58'>
+					<div class='collapsible-header'>
+						<div class='node-name'>When person name is entered in the search field</div>						
+						<span class='node-time'>Sep 17, 2017 7:16:23 PM</span>
+						<span class='node-duration'>0h 0m 4s+410ms</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+						<div class='collapsible-body'>
+								<div class='node-steps'>
+									<table class='bordered table-results'>
+										<thead>
+											<tr>
+												<th>Status</th>
+												<th>Timestamp</th>
+												<th>Details</th>
+											</tr>
+										</thead>
+										<tbody>
+												<tr class='log' status='info'>
+													<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+													<td class='timestamp'>7:16:23 PM</td>
+													<td class='step-details'><table><tr><td>searchText</td></tr><tr><td>Wendi</td></tr></table></td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>7:16:28 PM</td>
+													<td class='step-details'>passed</td>
+												</tr>
+										</tbody>
+									</table>
+										<ul class='screenshots'>
+												<li><img data-featherlight='/Users/meghanav/eclipse-workspace/ageRangerAutomatedTests/reports/screenShots/ageRanger34.png' width='10%' src='' data-src='/Users/meghanav/eclipse-workspace/ageRangerAutomatedTests/reports/screenShots/ageRanger34.png'></li>
+										</ul>
+								</div>
+						</div>
+				</li>
+				<li class='node level-2 leaf pass' status='pass' test-id='59'>
+					<div class='collapsible-header'>
+						<div class='node-name'>Then person details are displayed</div>						
+						<span class='node-time'>Sep 17, 2017 7:16:28 PM</span>
+						<span class='node-duration'>0h 0m 2s+105ms</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+						<div class='collapsible-body'>
+								<div class='node-steps'>
+									<table class='bordered table-results'>
+										<thead>
+											<tr>
+												<th>Status</th>
+												<th>Timestamp</th>
+												<th>Details</th>
+											</tr>
+										</thead>
+										<tbody>
+												<tr class='log' status='info'>
+													<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+													<td class='timestamp'>7:16:28 PM</td>
+													<td class='step-details'><table><tr><td>firstName</td><td>lastName</td><td>age</td><td>ageGroup</td></tr><tr><td>Wendi</td><td>Blake</td><td>20</td><td>Early twenties</td></tr></table></td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>7:16:30 PM</td>
+													<td class='step-details'>passed</td>
+												</tr>
+										</tbody>
+									</table>
+								</div>
+						</div>
+				</li>
+						</ul>
+				</li>
+				<li class='node level-1  pass' status='pass' test-id='60'>
+					<div class='collapsible-header'>
+						<div class='node-name'>Scenario: Search with person first and last name that is not available on the age Ranger page</div>						
+						<span class='node-time'>Sep 17, 2017 7:16:30 PM</span>
+						<span class='node-duration'>0h 0m 4s+592ms</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+						<ul class='collapsible node-list' data-collapsible='accordion'>
+				<li class='node level-2 leaf pass' status='pass' test-id='61'>
+					<div class='collapsible-header'>
+						<div class='node-name'>Given user is on Age Ranger page</div>						
+						<span class='node-time'>Sep 17, 2017 7:16:30 PM</span>
+						<span class='node-duration'>0h 0m 0s+72ms</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+						<div class='collapsible-body'>
+								<div class='node-steps'>
+									<table class='bordered table-results'>
+										<thead>
+											<tr>
+												<th>Status</th>
+												<th>Timestamp</th>
+												<th>Details</th>
+											</tr>
+										</thead>
+										<tbody>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>7:16:30 PM</td>
+													<td class='step-details'>passed</td>
+												</tr>
+										</tbody>
+									</table>
+								</div>
+						</div>
+				</li>
+				<li class='node level-2 leaf pass' status='pass' test-id='62'>
+					<div class='collapsible-header'>
+						<div class='node-name'>When person name is entered in the search field</div>						
+						<span class='node-time'>Sep 17, 2017 7:16:30 PM</span>
+						<span class='node-duration'>0h 0m 4s+495ms</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+						<div class='collapsible-body'>
+								<div class='node-steps'>
+									<table class='bordered table-results'>
+										<thead>
+											<tr>
+												<th>Status</th>
+												<th>Timestamp</th>
+												<th>Details</th>
+											</tr>
+										</thead>
+										<tbody>
+												<tr class='log' status='info'>
+													<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+													<td class='timestamp'>7:16:30 PM</td>
+													<td class='step-details'><table><tr><td>searchText</td></tr><tr><td>Mark</td></tr></table></td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>7:16:34 PM</td>
+													<td class='step-details'>passed</td>
+												</tr>
+										</tbody>
+									</table>
+										<ul class='screenshots'>
+												<li><img data-featherlight='/Users/meghanav/eclipse-workspace/ageRangerAutomatedTests/reports/screenShots/ageRanger35.png' width='10%' src='' data-src='/Users/meghanav/eclipse-workspace/ageRangerAutomatedTests/reports/screenShots/ageRanger35.png'></li>
+										</ul>
+								</div>
+						</div>
+				</li>
+				<li class='node level-2 leaf pass' status='pass' test-id='63'>
+					<div class='collapsible-header'>
+						<div class='node-name'>Then person details are not displayed</div>						
+						<span class='node-time'>Sep 17, 2017 7:16:34 PM</span>
+						<span class='node-duration'>0h 0m 0s+23ms</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+						<div class='collapsible-body'>
+								<div class='node-steps'>
+									<table class='bordered table-results'>
+										<thead>
+											<tr>
+												<th>Status</th>
+												<th>Timestamp</th>
+												<th>Details</th>
+											</tr>
+										</thead>
+										<tbody>
+												<tr class='log' status='info'>
+													<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+													<td class='timestamp'>7:16:34 PM</td>
+													<td class='step-details'><table><tr><td>firstName</td><td>lastName</td></tr><tr><td>Mark</td><td>Olsen</td></tr></table></td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>7:16:34 PM</td>
+													<td class='step-details'>passed</td>
+												</tr>
+										</tbody>
+									</table>
+								</div>
+						</div>
+				</li>
+						</ul>
+				</li>
+				<li class='node level-1  pass' status='pass' test-id='64'>
+					<div class='collapsible-header'>
+						<div class='node-name'>Scenario: Clear search field to display all records</div>						
+						<span class='node-time'>Sep 17, 2017 7:16:34 PM</span>
+						<span class='node-duration'>0h 0m 4s+464ms</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+						<ul class='collapsible node-list' data-collapsible='accordion'>
+				<li class='node level-2 leaf pass' status='pass' test-id='65'>
+					<div class='collapsible-header'>
+						<div class='node-name'>Given user is on Age Ranger page</div>						
+						<span class='node-time'>Sep 17, 2017 7:16:34 PM</span>
+						<span class='node-duration'>0h 0m 0s+37ms</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+						<div class='collapsible-body'>
+								<div class='node-steps'>
+									<table class='bordered table-results'>
+										<thead>
+											<tr>
+												<th>Status</th>
+												<th>Timestamp</th>
+												<th>Details</th>
+											</tr>
+										</thead>
+										<tbody>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>7:16:34 PM</td>
+													<td class='step-details'>passed</td>
+												</tr>
+										</tbody>
+									</table>
+								</div>
+						</div>
+				</li>
+				<li class='node level-2 leaf pass' status='pass' test-id='66'>
+					<div class='collapsible-header'>
+						<div class='node-name'>When search field is cleared</div>						
+						<span class='node-time'>Sep 17, 2017 7:16:34 PM</span>
+						<span class='node-duration'>0h 0m 0s+35ms</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+						<div class='collapsible-body'>
+								<div class='node-steps'>
+									<table class='bordered table-results'>
+										<thead>
+											<tr>
+												<th>Status</th>
+												<th>Timestamp</th>
+												<th>Details</th>
+											</tr>
+										</thead>
+										<tbody>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>7:16:34 PM</td>
+													<td class='step-details'>passed</td>
+												</tr>
+										</tbody>
+									</table>
+								</div>
+						</div>
+				</li>
+				<li class='node level-2 leaf pass' status='pass' test-id='67'>
+					<div class='collapsible-header'>
+						<div class='node-name'>Then person details are displayed</div>						
+						<span class='node-time'>Sep 17, 2017 7:16:34 PM</span>
+						<span class='node-duration'>0h 0m 4s+389ms</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+						<div class='collapsible-body'>
+								<div class='node-steps'>
+									<table class='bordered table-results'>
+										<thead>
+											<tr>
+												<th>Status</th>
+												<th>Timestamp</th>
+												<th>Details</th>
+											</tr>
+										</thead>
+										<tbody>
+												<tr class='log' status='info'>
+													<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+													<td class='timestamp'>7:16:34 PM</td>
+													<td class='step-details'><table><tr><td>firstName</td><td>lastName</td><td>age</td><td>ageGroup</td></tr><tr><td>Ashlie</td><td>Olsen</td><td>15</td><td>Teenager</td></tr><tr><td>Jim</td><td>Parker</td><td>2</td><td>Child</td></tr></table></td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>7:16:39 PM</td>
+													<td class='step-details'>passed</td>
+												</tr>
+										</tbody>
+									</table>
+								</div>
+						</div>
+				</li>
+						</ul>
+				</li>
+	</ul>
+					</div>
+				</li>
+				
+				
+				<li class='test displayed active has-leaf pass' status='pass' bdd='false' test-id='68'>
+					<div class='test-heading'>
+						<span class='test-name'>Delete Person record</span>
+						<span class='test-time'>Sep 17, 2017 7:16:39 PM</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Sep 17, 2017 7:16:39 PM</span>
+	<span class='label end-time'>Sep 17, 2017 7:17:56 PM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 1m 17s+148ms</span>
+</div>
+	<div class='test-attributes'>
+			<div class='category-list'>
+				<span class='category label white-text'>@DeletePerson</span>
+			</div>
+	</div>
+	<ul class='collapsible node-list' data-collapsible='accordion'>
+		
+				<li class='node level-1  pass' status='pass' test-id='69'>
+					<div class='collapsible-header'>
+						<div class='node-name'>Scenario: Delete Person record</div>						
+						<span class='node-time'>Sep 17, 2017 7:16:39 PM</span>
+						<span class='node-duration'>0h 1m 17s+148ms</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+						<ul class='collapsible node-list' data-collapsible='accordion'>
+				<li class='node level-2 leaf pass' status='pass' test-id='70'>
+					<div class='collapsible-header'>
+						<div class='node-name'>Given user is on Age Ranger page</div>						
+						<span class='node-time'>Sep 17, 2017 7:16:39 PM</span>
+						<span class='node-duration'>0h 0m 0s+31ms</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+						<div class='collapsible-body'>
+								<div class='node-steps'>
+									<table class='bordered table-results'>
+										<thead>
+											<tr>
+												<th>Status</th>
+												<th>Timestamp</th>
+												<th>Details</th>
+											</tr>
+										</thead>
+										<tbody>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>7:16:39 PM</td>
+													<td class='step-details'>passed</td>
+												</tr>
+										</tbody>
+									</table>
+								</div>
+						</div>
+				</li>
+				<li class='node level-2 leaf pass' status='pass' test-id='71'>
+					<div class='collapsible-header'>
+						<div class='node-name'>When Person record is deleted</div>						
+						<span class='node-time'>Sep 17, 2017 7:16:39 PM</span>
+						<span class='node-duration'>0h 1m 17s+105ms</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+						<div class='collapsible-body'>
+								<div class='node-steps'>
+									<table class='bordered table-results'>
+										<thead>
+											<tr>
+												<th>Status</th>
+												<th>Timestamp</th>
+												<th>Details</th>
+											</tr>
+										</thead>
+										<tbody>
+												<tr class='log' status='info'>
+													<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+													<td class='timestamp'>7:16:39 PM</td>
+													<td class='step-details'><table><tr><td>firstName</td><td>lastName</td></tr><tr><td>Ashlie</td><td>Olsen</td></tr><tr><td>Jim</td><td>Parker</td></tr><tr><td>Sophia</td><td>Ran</td></tr><tr><td>Wendi</td><td>Blake</td></tr><tr><td>ABCDEFGHIJKLM</td><td>NOPQRSTUVWXYZ</td></tr><tr><td>abcdefghijklm</td><td>nopqrstuvwxyz</td></tr><tr><td>12345</td><td>67890</td></tr><tr><td>ABCDEFGHIJKLMNOPQRSTUVWXYZ</td><td>abcdefghijklmnopqrstuvwxyz</td></tr><tr><td>ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklm</td><td>nopqrstuvwxyz1234567890</td></tr><tr><td>~`!@#$%^&*()_+</td><td>-=\{}[]:";<>?,./</td></tr><tr><td>ABCDEFGHIJKLMNOPQRSTUVWXY abcdefghijklmnopqrstuvwxyxz1234567890 ~`!@#$%^&*()_+</td><td>-=\{}[]:";<>?,./</td></tr><tr><td>Qwer toyu io pa sdfi iouguy rsepk vfdweu nopra xh Hu uy yuityu tyu ityt tyoip kl;op[ok kpoo ijjio pp fguhjj</td><td>[ mbvvxz seqw guhu frtdetu hiogyu gouyf ftyi gy itrt hniohutyu dfrfyuoo gyudeew nbjkfgch hgty</td></tr></table></td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>7:17:56 PM</td>
+													<td class='step-details'>passed</td>
+												</tr>
+										</tbody>
+									</table>
+										<ul class='screenshots'>
+												<li><img data-featherlight='/Users/meghanav/eclipse-workspace/ageRangerAutomatedTests/reports/screenShots/ageRanger36.png' width='10%' src='' data-src='/Users/meghanav/eclipse-workspace/ageRangerAutomatedTests/reports/screenShots/ageRanger36.png'></li>
+												<li><img data-featherlight='/Users/meghanav/eclipse-workspace/ageRangerAutomatedTests/reports/screenShots/ageRanger37.png' width='10%' src='' data-src='/Users/meghanav/eclipse-workspace/ageRangerAutomatedTests/reports/screenShots/ageRanger37.png'></li>
+												<li><img data-featherlight='/Users/meghanav/eclipse-workspace/ageRangerAutomatedTests/reports/screenShots/ageRanger38.png' width='10%' src='' data-src='/Users/meghanav/eclipse-workspace/ageRangerAutomatedTests/reports/screenShots/ageRanger38.png'></li>
+												<li><img data-featherlight='/Users/meghanav/eclipse-workspace/ageRangerAutomatedTests/reports/screenShots/ageRanger39.png' width='10%' src='' data-src='/Users/meghanav/eclipse-workspace/ageRangerAutomatedTests/reports/screenShots/ageRanger39.png'></li>
+												<li><img data-featherlight='/Users/meghanav/eclipse-workspace/ageRangerAutomatedTests/reports/screenShots/ageRanger40.png' width='10%' src='' data-src='/Users/meghanav/eclipse-workspace/ageRangerAutomatedTests/reports/screenShots/ageRanger40.png'></li>
+												<li><img data-featherlight='/Users/meghanav/eclipse-workspace/ageRangerAutomatedTests/reports/screenShots/ageRanger41.png' width='10%' src='' data-src='/Users/meghanav/eclipse-workspace/ageRangerAutomatedTests/reports/screenShots/ageRanger41.png'></li>
+												<li><img data-featherlight='/Users/meghanav/eclipse-workspace/ageRangerAutomatedTests/reports/screenShots/ageRanger42.png' width='10%' src='' data-src='/Users/meghanav/eclipse-workspace/ageRangerAutomatedTests/reports/screenShots/ageRanger42.png'></li>
+												<li><img data-featherlight='/Users/meghanav/eclipse-workspace/ageRangerAutomatedTests/reports/screenShots/ageRanger43.png' width='10%' src='' data-src='/Users/meghanav/eclipse-workspace/ageRangerAutomatedTests/reports/screenShots/ageRanger43.png'></li>
+												<li><img data-featherlight='/Users/meghanav/eclipse-workspace/ageRangerAutomatedTests/reports/screenShots/ageRanger44.png' width='10%' src='' data-src='/Users/meghanav/eclipse-workspace/ageRangerAutomatedTests/reports/screenShots/ageRanger44.png'></li>
+												<li><img data-featherlight='/Users/meghanav/eclipse-workspace/ageRangerAutomatedTests/reports/screenShots/ageRanger45.png' width='10%' src='' data-src='/Users/meghanav/eclipse-workspace/ageRangerAutomatedTests/reports/screenShots/ageRanger45.png'></li>
+												<li><img data-featherlight='/Users/meghanav/eclipse-workspace/ageRangerAutomatedTests/reports/screenShots/ageRanger46.png' width='10%' src='' data-src='/Users/meghanav/eclipse-workspace/ageRangerAutomatedTests/reports/screenShots/ageRanger46.png'></li>
+												<li><img data-featherlight='/Users/meghanav/eclipse-workspace/ageRangerAutomatedTests/reports/screenShots/ageRanger47.png' width='10%' src='' data-src='/Users/meghanav/eclipse-workspace/ageRangerAutomatedTests/reports/screenShots/ageRanger47.png'></li>
+										</ul>
+								</div>
+						</div>
+				</li>
+				<li class='node level-2 leaf pass' status='pass' test-id='72'>
+					<div class='collapsible-header'>
+						<div class='node-name'>Then person details are not displayed</div>						
+						<span class='node-time'>Sep 17, 2017 7:17:56 PM</span>
+						<span class='node-duration'>0h 0m 0s+11ms</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+						<div class='collapsible-body'>
+								<div class='node-steps'>
+									<table class='bordered table-results'>
+										<thead>
+											<tr>
+												<th>Status</th>
+												<th>Timestamp</th>
+												<th>Details</th>
+											</tr>
+										</thead>
+										<tbody>
+												<tr class='log' status='info'>
+													<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+													<td class='timestamp'>7:17:56 PM</td>
+													<td class='step-details'><table><tr><td>firstName</td><td>lastName</td></tr><tr><td>John</td><td>Mathew</td></tr></table></td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>7:17:56 PM</td>
+													<td class='step-details'>passed</td>
+												</tr>
+										</tbody>
+									</table>
+								</div>
+						</div>
+				</li>
+						</ul>
+				</li>
+	</ul>
+					</div>
+				</li>
+				
+				
+				<li class='test displayed active has-leaf pass' status='pass' bdd='false' test-id='73'>
+					<div class='test-heading'>
+						<span class='test-name'>Verify field validations</span>
+						<span class='test-time'>Sep 17, 2017 7:17:56 PM</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Sep 17, 2017 7:17:56 PM</span>
+	<span class='label end-time'>Sep 17, 2017 7:18:00 PM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 0m 4s+0ms</span>
+</div>
+	<div class='test-attributes'>
+			<div class='category-list'>
+				<span class='category label white-text'>@VerifyFieldValidations</span>
+			</div>
+	</div>
+	<ul class='collapsible node-list' data-collapsible='accordion'>
+		
+				<li class='node level-1  pass' status='pass' test-id='74'>
+					<div class='collapsible-header'>
+						<div class='node-name'>Scenario: Click on Add icon</div>						
+						<span class='node-time'>Sep 17, 2017 7:17:56 PM</span>
+						<span class='node-duration'>0h 0m 0s+659ms</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+						<ul class='collapsible node-list' data-collapsible='accordion'>
+				<li class='node level-2 leaf pass' status='pass' test-id='75'>
+					<div class='collapsible-header'>
+						<div class='node-name'>Given user is on Age Ranger page</div>						
+						<span class='node-time'>Sep 17, 2017 7:17:56 PM</span>
+						<span class='node-duration'>0h 0m 0s+25ms</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+						<div class='collapsible-body'>
+								<div class='node-steps'>
+									<table class='bordered table-results'>
+										<thead>
+											<tr>
+												<th>Status</th>
+												<th>Timestamp</th>
+												<th>Details</th>
+											</tr>
+										</thead>
+										<tbody>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>7:17:56 PM</td>
+													<td class='step-details'>passed</td>
+												</tr>
+										</tbody>
+									</table>
+								</div>
+						</div>
+				</li>
+				<li class='node level-2 leaf pass' status='pass' test-id='76'>
+					<div class='collapsible-header'>
+						<div class='node-name'>When Add icon is clicked</div>						
+						<span class='node-time'>Sep 17, 2017 7:17:56 PM</span>
+						<span class='node-duration'>0h 0m 0s+543ms</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+						<div class='collapsible-body'>
+								<div class='node-steps'>
+									<table class='bordered table-results'>
+										<thead>
+											<tr>
+												<th>Status</th>
+												<th>Timestamp</th>
+												<th>Details</th>
+											</tr>
+										</thead>
+										<tbody>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>7:17:56 PM</td>
+													<td class='step-details'>passed</td>
+												</tr>
+										</tbody>
+									</table>
+										<ul class='screenshots'>
+												<li><img data-featherlight='/Users/meghanav/eclipse-workspace/ageRangerAutomatedTests/reports/screenShots/ageRanger48.png' width='10%' src='' data-src='/Users/meghanav/eclipse-workspace/ageRangerAutomatedTests/reports/screenShots/ageRanger48.png'></li>
+										</ul>
+								</div>
+						</div>
+				</li>
+				<li class='node level-2 leaf pass' status='pass' test-id='77'>
+					<div class='collapsible-header'>
+						<div class='node-name'>Then New person modal window should be displayed</div>						
+						<span class='node-time'>Sep 17, 2017 7:17:56 PM</span>
+						<span class='node-duration'>0h 0m 0s+90ms</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+						<div class='collapsible-body'>
+								<div class='node-steps'>
+									<table class='bordered table-results'>
+										<thead>
+											<tr>
+												<th>Status</th>
+												<th>Timestamp</th>
+												<th>Details</th>
+											</tr>
+										</thead>
+										<tbody>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>7:17:57 PM</td>
+													<td class='step-details'>passed</td>
+												</tr>
+										</tbody>
+									</table>
+								</div>
+						</div>
+				</li>
+						</ul>
+				</li>
+				<li class='node level-1  pass' status='pass' test-id='78'>
+					<div class='collapsible-header'>
+						<div class='node-name'>Scenario: Verify field validation for Age when alpha numeric value is entered</div>						
+						<span class='node-time'>Sep 17, 2017 7:17:57 PM</span>
+						<span class='node-duration'>0h 0m 1s+417ms</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+						<ul class='collapsible node-list' data-collapsible='accordion'>
+				<li class='node level-2 leaf pass' status='pass' test-id='79'>
+					<div class='collapsible-header'>
+						<div class='node-name'>Given user is on New Person modal window</div>						
+						<span class='node-time'>Sep 17, 2017 7:17:57 PM</span>
+						<span class='node-duration'>0h 0m 0s+25ms</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+						<div class='collapsible-body'>
+								<div class='node-steps'>
+									<table class='bordered table-results'>
+										<thead>
+											<tr>
+												<th>Status</th>
+												<th>Timestamp</th>
+												<th>Details</th>
+											</tr>
+										</thead>
+										<tbody>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>7:17:57 PM</td>
+													<td class='step-details'>passed</td>
+												</tr>
+										</tbody>
+									</table>
+								</div>
+						</div>
+				</li>
+				<li class='node level-2 leaf pass' status='pass' test-id='80'>
+					<div class='collapsible-header'>
+						<div class='node-name'>When person detials are entered</div>						
+						<span class='node-time'>Sep 17, 2017 7:17:57 PM</span>
+						<span class='node-duration'>0h 0m 1s+45ms</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+						<div class='collapsible-body'>
+								<div class='node-steps'>
+									<table class='bordered table-results'>
+										<thead>
+											<tr>
+												<th>Status</th>
+												<th>Timestamp</th>
+												<th>Details</th>
+											</tr>
+										</thead>
+										<tbody>
+												<tr class='log' status='info'>
+													<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+													<td class='timestamp'>7:17:57 PM</td>
+													<td class='step-details'><table><tr><td>firstName</td><td>lastName</td><td>age</td></tr><tr><td>John</td><td>Doe</td><td>1e</td></tr></table></td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>7:17:58 PM</td>
+													<td class='step-details'>passed</td>
+												</tr>
+										</tbody>
+									</table>
+										<ul class='screenshots'>
+												<li><img data-featherlight='/Users/meghanav/eclipse-workspace/ageRangerAutomatedTests/reports/screenShots/ageRanger49.png' width='10%' src='' data-src='/Users/meghanav/eclipse-workspace/ageRangerAutomatedTests/reports/screenShots/ageRanger49.png'></li>
+										</ul>
+								</div>
+						</div>
+				</li>
+				<li class='node level-2 leaf pass' status='pass' test-id='81'>
+					<div class='collapsible-header'>
+						<div class='node-name'>Then validation message should be displayed</div>						
+						<span class='node-time'>Sep 17, 2017 7:17:58 PM</span>
+						<span class='node-duration'>0h 0m 0s+346ms</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+						<div class='collapsible-body'>
+								<div class='node-steps'>
+									<table class='bordered table-results'>
+										<thead>
+											<tr>
+												<th>Status</th>
+												<th>Timestamp</th>
+												<th>Details</th>
+											</tr>
+										</thead>
+										<tbody>
+												<tr class='log' status='info'>
+													<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+													<td class='timestamp'>7:17:58 PM</td>
+													<td class='step-details'><table><tr><td>message</td></tr><tr><td>Age is invalid.</td></tr></table></td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>7:17:58 PM</td>
+													<td class='step-details'>passed</td>
+												</tr>
+										</tbody>
+									</table>
+										<ul class='screenshots'>
+												<li><img data-featherlight='/Users/meghanav/eclipse-workspace/ageRangerAutomatedTests/reports/screenShots/ageRanger50.png' width='10%' src='' data-src='/Users/meghanav/eclipse-workspace/ageRangerAutomatedTests/reports/screenShots/ageRanger50.png'></li>
+										</ul>
+								</div>
+						</div>
+				</li>
+						</ul>
+				</li>
+				<li class='node level-1  pass' status='pass' test-id='82'>
+					<div class='collapsible-header'>
+						<div class='node-name'>Scenario: Verify field validation when First Name, Last Name and age fields are cleared</div>						
+						<span class='node-time'>Sep 17, 2017 7:17:58 PM</span>
+						<span class='node-duration'>0h 0m 1s+540ms</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+						<ul class='collapsible node-list' data-collapsible='accordion'>
+				<li class='node level-2 leaf pass' status='pass' test-id='83'>
+					<div class='collapsible-header'>
+						<div class='node-name'>Given user is on New Person modal window</div>						
+						<span class='node-time'>Sep 17, 2017 7:17:58 PM</span>
+						<span class='node-duration'>0h 0m 0s+33ms</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+						<div class='collapsible-body'>
+								<div class='node-steps'>
+									<table class='bordered table-results'>
+										<thead>
+											<tr>
+												<th>Status</th>
+												<th>Timestamp</th>
+												<th>Details</th>
+											</tr>
+										</thead>
+										<tbody>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>7:17:58 PM</td>
+													<td class='step-details'>passed</td>
+												</tr>
+										</tbody>
+									</table>
+								</div>
+						</div>
+				</li>
+				<li class='node level-2 leaf pass' status='pass' test-id='84'>
+					<div class='collapsible-header'>
+						<div class='node-name'>When person details are cleared</div>						
+						<span class='node-time'>Sep 17, 2017 7:17:58 PM</span>
+						<span class='node-duration'>0h 0m 0s+514ms</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+						<div class='collapsible-body'>
+								<div class='node-steps'>
+									<table class='bordered table-results'>
+										<thead>
+											<tr>
+												<th>Status</th>
+												<th>Timestamp</th>
+												<th>Details</th>
+											</tr>
+										</thead>
+										<tbody>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>7:17:58 PM</td>
+													<td class='step-details'>passed</td>
+												</tr>
+										</tbody>
+									</table>
+										<ul class='screenshots'>
+												<li><img data-featherlight='/Users/meghanav/eclipse-workspace/ageRangerAutomatedTests/reports/screenShots/ageRanger51.png' width='10%' src='' data-src='/Users/meghanav/eclipse-workspace/ageRangerAutomatedTests/reports/screenShots/ageRanger51.png'></li>
+										</ul>
+								</div>
+						</div>
+				</li>
+				<li class='node level-2 leaf pass' status='pass' test-id='85'>
+					<div class='collapsible-header'>
+						<div class='node-name'>Then validation message should be displayed</div>						
+						<span class='node-time'>Sep 17, 2017 7:17:59 PM</span>
+						<span class='node-duration'>0h 0m 0s+990ms</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+						<div class='collapsible-body'>
+								<div class='node-steps'>
+									<table class='bordered table-results'>
+										<thead>
+											<tr>
+												<th>Status</th>
+												<th>Timestamp</th>
+												<th>Details</th>
+											</tr>
+										</thead>
+										<tbody>
+												<tr class='log' status='info'>
+													<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+													<td class='timestamp'>7:17:59 PM</td>
+													<td class='step-details'><table><tr><td>message</td></tr><tr><td>First name is required.</td></tr><tr><td>Last name is required.</td></tr><tr><td>Age is invalid.</td></tr></table></td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>7:17:59 PM</td>
+													<td class='step-details'>passed</td>
+												</tr>
+										</tbody>
+									</table>
+										<ul class='screenshots'>
+												<li><img data-featherlight='/Users/meghanav/eclipse-workspace/ageRangerAutomatedTests/reports/screenShots/ageRanger52.png' width='10%' src='' data-src='/Users/meghanav/eclipse-workspace/ageRangerAutomatedTests/reports/screenShots/ageRanger52.png'></li>
+												<li><img data-featherlight='/Users/meghanav/eclipse-workspace/ageRangerAutomatedTests/reports/screenShots/ageRanger53.png' width='10%' src='' data-src='/Users/meghanav/eclipse-workspace/ageRangerAutomatedTests/reports/screenShots/ageRanger53.png'></li>
+												<li><img data-featherlight='/Users/meghanav/eclipse-workspace/ageRangerAutomatedTests/reports/screenShots/ageRanger54.png' width='10%' src='' data-src='/Users/meghanav/eclipse-workspace/ageRangerAutomatedTests/reports/screenShots/ageRanger54.png'></li>
+										</ul>
+								</div>
+						</div>
+				</li>
+						</ul>
+				</li>
+				<li class='node level-1  pass' status='pass' test-id='86'>
+					<div class='collapsible-header'>
+						<div class='node-name'>Scenario: Close New Person modal window</div>						
+						<span class='node-time'>Sep 17, 2017 7:17:59 PM</span>
+						<span class='node-duration'>0h 0m 0s+383ms</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+						<ul class='collapsible node-list' data-collapsible='accordion'>
+				<li class='node level-2 leaf pass' status='pass' test-id='87'>
+					<div class='collapsible-header'>
+						<div class='node-name'>Given user is on New Person modal window</div>						
+						<span class='node-time'>Sep 17, 2017 7:17:59 PM</span>
+						<span class='node-duration'>0h 0m 0s+23ms</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+						<div class='collapsible-body'>
+								<div class='node-steps'>
+									<table class='bordered table-results'>
+										<thead>
+											<tr>
+												<th>Status</th>
+												<th>Timestamp</th>
+												<th>Details</th>
+											</tr>
+										</thead>
+										<tbody>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>7:18:00 PM</td>
+													<td class='step-details'>passed</td>
+												</tr>
+										</tbody>
+									</table>
+								</div>
+						</div>
+				</li>
+				<li class='node level-2 leaf pass' status='pass' test-id='88'>
+					<div class='collapsible-header'>
+						<div class='node-name'>When Close button is clicked</div>						
+						<span class='node-time'>Sep 17, 2017 7:18:00 PM</span>
+						<span class='node-duration'>0h 0m 0s+291ms</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+						<div class='collapsible-body'>
+								<div class='node-steps'>
+									<table class='bordered table-results'>
+										<thead>
+											<tr>
+												<th>Status</th>
+												<th>Timestamp</th>
+												<th>Details</th>
+											</tr>
+										</thead>
+										<tbody>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>7:18:00 PM</td>
+													<td class='step-details'>passed</td>
+												</tr>
+										</tbody>
+									</table>
+								</div>
+						</div>
+				</li>
+				<li class='node level-2 leaf pass' status='pass' test-id='89'>
+					<div class='collapsible-header'>
+						<div class='node-name'>Then modal window should be closed</div>						
+						<span class='node-time'>Sep 17, 2017 7:18:00 PM</span>
+						<span class='node-duration'>0h 0m 0s+66ms</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+						<div class='collapsible-body'>
+								<div class='node-steps'>
+									<table class='bordered table-results'>
+										<thead>
+											<tr>
+												<th>Status</th>
+												<th>Timestamp</th>
+												<th>Details</th>
+											</tr>
+										</thead>
+										<tbody>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>7:18:00 PM</td>
+													<td class='step-details'>passed</td>
+												</tr>
+										</tbody>
+									</table>
+								</div>
+						</div>
+				</li>
+						</ul>
+				</li>
+	</ul>
+					</div>
+				</li>
+				
+				
+				<li class='test displayed active has-leaf pass' status='pass' bdd='false' test-id='90'>
+					<div class='test-heading'>
+						<span class='test-name'>Close Browser</span>
+						<span class='test-time'>Sep 17, 2017 7:18:00 PM</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Sep 17, 2017 7:18:00 PM</span>
+	<span class='label end-time'>Sep 17, 2017 7:18:00 PM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 0m 0s+199ms</span>
+</div>
+	<div class='test-attributes'>
+			<div class='category-list'>
+				<span class='category label white-text'>@closeBrowser</span>
+			</div>
+	</div>
+	<ul class='collapsible node-list' data-collapsible='accordion'>
+		
+				<li class='node level-1  pass' status='pass' test-id='91'>
+					<div class='collapsible-header'>
+						<div class='node-name'>Scenario: Close Browser</div>						
+						<span class='node-time'>Sep 17, 2017 7:18:00 PM</span>
+						<span class='node-duration'>0h 0m 0s+199ms</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+						<ul class='collapsible node-list' data-collapsible='accordion'>
+				<li class='node level-2 leaf pass' status='pass' test-id='92'>
+					<div class='collapsible-header'>
+						<div class='node-name'>Given browser is closed</div>						
+						<span class='node-time'>Sep 17, 2017 7:18:00 PM</span>
+						<span class='node-duration'>0h 0m 0s+199ms</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+						<div class='collapsible-body'>
+								<div class='node-steps'>
+									<table class='bordered table-results'>
+										<thead>
+											<tr>
+												<th>Status</th>
+												<th>Timestamp</th>
+												<th>Details</th>
+											</tr>
+										</thead>
+										<tbody>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>7:18:00 PM</td>
+													<td class='step-details'>passed</td>
+												</tr>
+										</tbody>
+									</table>
+								</div>
+						</div>
+				</li>
+						</ul>
+				</li>
+	</ul>
+					</div>
+				</li>
+			</ul>
+		</div>
+	</div>
+	<!-- subview left -->
+
+	<div class='subview-right left'>
+		<div class='view-summary'>
+			<h5 class='test-name'></h5>
+
+			<div id='step-filters' class="right">
+				<span class="blue-text" status="info" alt="info" title="info"><i class="material-icons">info_outline</i></span>
+				<span class="green-text" status="pass" alt="pass" title="pass"><i class="material-icons">check_circle</i></span>
+				<span class="red-text" status="fail" alt="fail" title="fail"><i class="material-icons">cancel</i></span>
+				<span class="red-text text-darken-4" status="fatal" alt="fatal" title="fatal"><i class="material-icons">cancel</i></span>
+				<span class="pink-text text-lighten-1" status="error" alt="error" title="error"><i class="material-icons">error</i></span>
+				<span class="orange-text" alt="warning" status="warning" title="warning"><i class="material-icons">warning</i></span>
+				<span class="teal-text" status="skip" alt="skip" title="skip"><i class="material-icons">redo</i></span>
+				<span status="clear" alt="Clear filters" title="Clear filters"><i class="material-icons">clear</i></span>
+			</div>
+		</div>
+	</div>
+	<!-- subview right -->
+
+</div>
+<!-- test view --><div id='category-view' class='view hide'>
+
+	<section id='controls'>
+		<div class='controls grey lighten-4'>
+			<!-- search -->
+			<div class='chip transparent' alt='Search Tests' title='Search Tests'>
+				<a href="#" class='search-div'>
+					<i class='material-icons'>search</i> Search
+				</a>
+				
+				<div class='input-field left hide'>
+					<input id='search-tests' type='text' class='validate browser-default' placeholder='Search Tests...'>
+				</div>
+				
+			</div>
+			<!-- search -->
+		</div>
+	</section>
+
+	<div class='subview-left left'>
+		
+		<div class='view-summary'>
+			<h5>Categories</h3>
+			<ul id='category-collection' class='category-collection'>
+				
+				<li class='category displayed active'>
+					<div class='category-heading'>
+						<span class='category-name'>@APITests</span>
+						<span class='category-status right'>
+							<span class='label pass'>1</span>
+						</span>
+					</div>
+					<div class='category-content hide'>
+						<div class='category-status-counts'>
+							<span class='label green accent-4 white-text'>Passed: 1</span>
+							
+							
+						</div>
+					
+						<div class='category-tests'>
+							<table class='bordered table-results'>
+								<thead>
+									<tr>
+										<th>Timestamp</th>
+										<th>TestName</th>
+										<th>Status</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>Sep 17, 2017 7:14:06 PM</td>
+										<td class='linked' test-id='1'>Verify addition and deletion of person details using Age Ranger APIs</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</li>
+				<li class='category displayed active'>
+					<div class='category-heading'>
+						<span class='category-name'>@NavigateToAgeRanger</span>
+						<span class='category-status right'>
+							<span class='label pass'>1</span>
+						</span>
+					</div>
+					<div class='category-content hide'>
+						<div class='category-status-counts'>
+							<span class='label green accent-4 white-text'>Passed: 1</span>
+							
+							
+						</div>
+					
+						<div class='category-tests'>
+							<table class='bordered table-results'>
+								<thead>
+									<tr>
+										<th>Timestamp</th>
+										<th>TestName</th>
+										<th>Status</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>Sep 17, 2017 7:14:13 PM</td>
+										<td class='linked' test-id='10'>Navigate to Age Ranger page</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</li>
+				<li class='category displayed active'>
+					<div class='category-heading'>
+						<span class='category-name'>@AddPerson</span>
+						<span class='category-status right'>
+							<span class='label pass'>1</span>
+						</span>
+					</div>
+					<div class='category-content hide'>
+						<div class='category-status-counts'>
+							<span class='label green accent-4 white-text'>Passed: 1</span>
+							
+							
+						</div>
+					
+						<div class='category-tests'>
+							<table class='bordered table-results'>
+								<thead>
+									<tr>
+										<th>Timestamp</th>
+										<th>TestName</th>
+										<th>Status</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>Sep 17, 2017 7:14:21 PM</td>
+										<td class='linked' test-id='13'>Add Person Details</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</li>
+				<li class='category displayed active'>
+					<div class='category-heading'>
+						<span class='category-name'>@EditPerson</span>
+						<span class='category-status right'>
+							<span class='label pass'>1</span>
+						</span>
+					</div>
+					<div class='category-content hide'>
+						<div class='category-status-counts'>
+							<span class='label green accent-4 white-text'>Passed: 1</span>
+							
+							
+						</div>
+					
+						<div class='category-tests'>
+							<table class='bordered table-results'>
+								<thead>
+									<tr>
+										<th>Timestamp</th>
+										<th>TestName</th>
+										<th>Status</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>Sep 17, 2017 7:16:07 PM</td>
+										<td class='linked' test-id='34'>Edit Person Details</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</li>
+				<li class='category displayed active'>
+					<div class='category-heading'>
+						<span class='category-name'>@SearchPerson</span>
+						<span class='category-status right'>
+							<span class='label pass'>1</span>
+						</span>
+					</div>
+					<div class='category-content hide'>
+						<div class='category-status-counts'>
+							<span class='label green accent-4 white-text'>Passed: 1</span>
+							
+							
+						</div>
+					
+						<div class='category-tests'>
+							<table class='bordered table-results'>
+								<thead>
+									<tr>
+										<th>Timestamp</th>
+										<th>TestName</th>
+										<th>Status</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>Sep 17, 2017 7:16:16 PM</td>
+										<td class='linked' test-id='51'>Search Person Details</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</li>
+				<li class='category displayed active'>
+					<div class='category-heading'>
+						<span class='category-name'>@DeletePerson</span>
+						<span class='category-status right'>
+							<span class='label pass'>1</span>
+						</span>
+					</div>
+					<div class='category-content hide'>
+						<div class='category-status-counts'>
+							<span class='label green accent-4 white-text'>Passed: 1</span>
+							
+							
+						</div>
+					
+						<div class='category-tests'>
+							<table class='bordered table-results'>
+								<thead>
+									<tr>
+										<th>Timestamp</th>
+										<th>TestName</th>
+										<th>Status</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>Sep 17, 2017 7:16:39 PM</td>
+										<td class='linked' test-id='68'>Delete Person record</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</li>
+				<li class='category displayed active'>
+					<div class='category-heading'>
+						<span class='category-name'>@VerifyFieldValidations</span>
+						<span class='category-status right'>
+							<span class='label pass'>1</span>
+						</span>
+					</div>
+					<div class='category-content hide'>
+						<div class='category-status-counts'>
+							<span class='label green accent-4 white-text'>Passed: 1</span>
+							
+							
+						</div>
+					
+						<div class='category-tests'>
+							<table class='bordered table-results'>
+								<thead>
+									<tr>
+										<th>Timestamp</th>
+										<th>TestName</th>
+										<th>Status</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>Sep 17, 2017 7:17:56 PM</td>
+										<td class='linked' test-id='73'>Verify field validations</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</li>
+				<li class='category displayed active'>
+					<div class='category-heading'>
+						<span class='category-name'>@closeBrowser</span>
+						<span class='category-status right'>
+							<span class='label pass'>1</span>
+						</span>
+					</div>
+					<div class='category-content hide'>
+						<div class='category-status-counts'>
+							<span class='label green accent-4 white-text'>Passed: 1</span>
+							
+							
+						</div>
+					
+						<div class='category-tests'>
+							<table class='bordered table-results'>
+								<thead>
+									<tr>
+										<th>Timestamp</th>
+										<th>TestName</th>
+										<th>Status</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>Sep 17, 2017 7:18:00 PM</td>
+										<td class='linked' test-id='90'>Close Browser</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</li>
+
+			</ul>
+		</div>
+	</div>
+
+	<div class='subview-right left'>
+		<div class='view-summary'>
+			<h5 class='category-name'></h5>
+		</div>
+	</div>
+</div>
+<!-- category view --><!-- exception view --><div id='dashboard-view' class='view hide'>
+	<div class='card-panel transparent np-v'>
+		<h5>Dashboard</h5>
+
+		<div class='row'>
+			<div class='col s2'>
+				<div class='card-panel r'>
+					Tests
+					<div class='panel-lead'>62</div>
+				</div>
+			</div>
+			<div class='col s2'>
+				<div class='card-panel r'>
+					Steps
+					<div class='panel-lead'>89</div>
+				</div>
+			</div>
+			<div class='col s2'>
+				<div class='card-panel r'>
+					Start
+					<div class='panel-lead'>Sep 17, 2017 7:14:06 PM</div>
+				</div>
+			</div>
+			<div class='col s2'>
+				<div class='card-panel r'>
+			 		End
+			 		<div class='panel-lead'>Sep 17, 2017 7:18:00 PM</div>
+				</div>
+			</div>
+			<div class='col s2'>
+				<div class='card-panel r'>
+					Time Taken
+					<div class='panel-lead'>233,939ms</div>
+				</div>
+			</div>
+			<div class='col s4'>
+				<div class='card-panel'>
+					<span class='right label cyan white-text'>Categories</span><p>&nbsp;</p>
+					
+					<table>
+						<tr>
+							<th>Name</th>
+							<th>Passed</th>
+							<th>Failed</th>
+							<th>Others</th>
+						</tr>
+						<tr>
+							<td>@APITests</td>
+							<td>1</td>
+							<td>0</td>
+							<td>0</td>
+						</tr>
+						<tr>
+							<td>@NavigateToAgeRanger</td>
+							<td>1</td>
+							<td>0</td>
+							<td>0</td>
+						</tr>
+						<tr>
+							<td>@AddPerson</td>
+							<td>1</td>
+							<td>0</td>
+							<td>0</td>
+						</tr>
+						<tr>
+							<td>@EditPerson</td>
+							<td>1</td>
+							<td>0</td>
+							<td>0</td>
+						</tr>
+						<tr>
+							<td>@SearchPerson</td>
+							<td>1</td>
+							<td>0</td>
+							<td>0</td>
+						</tr>
+						<tr>
+							<td>@DeletePerson</td>
+							<td>1</td>
+							<td>0</td>
+							<td>0</td>
+						</tr>
+						<tr>
+							<td>@VerifyFieldValidations</td>
+							<td>1</td>
+							<td>0</td>
+							<td>0</td>
+						</tr>
+						<tr>
+							<td>@closeBrowser</td>
+							<td>1</td>
+							<td>0</td>
+							<td>0</td>
+						</tr>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- dashboard view --><!-- testrunner-logs view -->
+		</div>
+		<!-- container -->
+
+		<script>
+			var statusGroup = {
+				passParent: 62,
+				failParent: 0,
+				fatalParent: 0,
+				errorParent: 0,
+				warningParent: 0,
+				skipParent: 0,
+				exceptionsParent: 0,
+				
+				passChild: 62,
+				failChild: 0,
+				fatalChild: 0,
+				errorChild: 0,
+				warningChild: 0,
+				skipChild: 0,
+				infoChild: 27,
+				exceptionsChild: 0,
+				
+				passGrandChild: 0,
+				failGrandChild: 0,
+				fatalGrandChild: 0,
+				errorGrandChild: 0,
+				warningGrandChild: 0,
+				skipGrandChild: 0,
+				infoGrandChild: 0,
+				exceptionsGrandChild: 0,
+			};
+		</script>
+		
+			<script src='https://cdn.rawgit.com/anshooarora/extentreports-java/9fa70d0ed9c34a8ed445ceee3494d3d7de7f8918/dist/js/extent.js' type='text/javascript'></script>
+		
+		
+	</body>
+	
+</html>
