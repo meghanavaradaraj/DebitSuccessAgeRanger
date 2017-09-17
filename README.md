@@ -4,17 +4,17 @@ Prerequisites/dependencies:
 3. Install Maven
 4. Install cucumber plugin for eclipse
 5. Change chromer driver path in prameters.java file based in OS
-	Mac OS : 
+	Mac OS - 
 		seleniumChromePath = "./drivers/chromedriver";
-	Windows OS:
+	Windows OS -
 		seleniumChromePath = "./drivers/chromedriver.exe";
 
 
-To Run the Tests: 
+To Run the Tests -
 	Run 'RunTest.java' as a JUnit Test
 
-Test Reports:
-	HTMl report and screenshots will be available in the 'reports' folder of the project
+Test Reports -
+	HTML report and screenshots will be available in the 'reports' folder of the project
 	
 Test Scenarios and Test Cases are available in the 'AgeRanger_TestScripts.xlsx'
 
